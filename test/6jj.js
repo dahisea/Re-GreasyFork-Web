@@ -1,1 +1,0 @@
-(function(){let siteId=4;eval(`window.site${siteId}()`);let currentUrl=window.location.href;setTimeout(function(){window.location.href='https://greasyfork.zh-cn.eu.org/zh-CN';},300000);})();
