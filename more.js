@@ -1,12 +1,6 @@
 (function() {
-    const config = {
-        adSelector: '.adsbygoogle',  // 自动广告的选择器
-        adClient: 'ca-pub-3758644447684310'      // AdSense 客户端ID
-    };
-
     // 广告管理器
     function AdController() {
-        this.ads = [];
         this.init();
     }
 
@@ -21,14 +15,11 @@
             const observer = new MutationObserver(mutations => {
                 mutations.forEach(mutation => {
                     const newAds = [...mutation.addedNodes].filter(node => 
-                        node.nodeType === 1 && node.matches(config.adSelector)
+                        node.nodeType === 1 && node.matches('ins.adsbygoogle') // 锁定ins元素
                     );
                     if (newAds.length) {
                         newAds.forEach(ad => {
-                            if (this.isValidAd(ad)) {
-                                this.bindAd(ad);
-                                this.simulateCloseAd(ad); // 模拟关闭广告
-                            }
+                            this.checkAndCloseAd(ad); // 检查广告状态并模拟关闭
                         });
                     }
                 });
@@ -40,28 +31,32 @@
             });
         },
 
-        // 判断广告是否为有效的AdSense广告（只验证data-ad-client）
-        isValidAd(adElement) {
-            const adClient = adElement.getAttribute('data-ad-client');
-            return adClient === config.adClient;
-        },
+        // 检查广告状态并模拟关闭广告
+        checkAndCloseAd(adElement) {
+            // 检查广告是否已显示
+            const checkAdStatus = () => {
+                const status = adElement.getAttribute('data-anchor-status');
+                if (status === 'displayed') {
+                    // 广告已经显示，等待1秒后删除
+                    setTimeout(() => {
+                        adElement.classList.add('ad-hidden'); // 隐藏广告
+                        setTimeout(() => adElement.remove(), 500); // 移除广告
+                    }, 1000); // 等待1秒
+                }
+            };
 
-        // 绑定广告实例
-        bindAd(ad) {
-            if (!ad.dataset.initialized) {
-                ad.dataset.initialized = true;
-            }
-        },
+            // 如果广告立即有 data-anchor-status，可以立即检查
+            checkAdStatus();
 
-        // 模拟点击关闭广告
-        simulateCloseAd(adElement) {
-            setTimeout(() => {
-                // 如果广告没有关闭按钮，隐藏广告
-                adElement.classList.add('ad-hidden'); // 直接将广告隐藏
-                
-                // 移除广告
-                setTimeout(() => adElement.remove(), 500);
-            }, 600); // 等待广告加载后再模拟关闭
+            // 监听属性变化以便检测广告显示
+            const observer = new MutationObserver(() => {
+                checkAdStatus();
+            });
+
+            observer.observe(adElement, {
+                attributes: true,
+                attributeFilter: ['data-anchor-status'] // 监听状态变化
+            });
         }
     };
 
