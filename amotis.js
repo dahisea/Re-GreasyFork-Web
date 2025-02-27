@@ -1,0 +1,1 @@
+(function(){const a=atob('aW5zLmFkcy5hZGJ5Z29vZ2xl'),b=atob('ZGF0YS12aW5nZXR0ZS1sb2FkZWQ='),c=atob('dHJ1ZQ==');function d(){this.e()}d.prototype={e:function(){setTimeout(()=>{this.f()},3000)},f:function(){setInterval(()=>{document.querySelectorAll(a).forEach(ad=>{if(ad.getAttribute(b)===c){ad.remove()}})},500)}};new d})();
