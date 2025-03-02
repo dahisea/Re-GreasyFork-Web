@@ -1,1 +1,5 @@
-ins.adsbygoogle[data-anchor-status="displayed"] iframe{opacity:0;pointer-events:none;transition:opacity 1s}ins.adsbygoogle[data-vignette-loaded="true"] div{display:none;opacity:0;visibility:hidden;transition:opacity 1s,visibility 1s}
+ins.adsbygoogle[data-anchor-status="displayed"] iframe,
+ins.adsbygoogle iframe[data-load-complete="true"] {
+    opacity: 0;
+    transition: opacity 1s;
+}
