@@ -1821,10 +1821,12 @@ nav .with-submenu>a:after {
 }
 
 .list-option-group ul {
-    margin: .5em 0 0;
     list-style-type: none;
-    padding: 1em 0;
-    background-color: #fff
+    position: relative;
+    margin: 16px;
+    padding: 0 1em 1em;
+    background-color: #FFFCFB;
+    border-radius: 16px
 }
 
 .list-option-group a {
@@ -2461,7 +2463,9 @@ dd.script-list-ratings {
 @media screen and (max-width:800px) {
     .sidebarred {
         display: block;
-        position: relative
+        position: fixed;
+        top: 0;
+        right: 0
     }
 
     .sidebar {
@@ -2491,6 +2495,10 @@ dd.script-list-ratings {
         margin-right: -16px;
         padding: .25em 1.2vw .25em 16px
     }
+    
+    .open-sidebar {
+        margin-right: 0
+    }
 
     .open-sidebar.sidebar-collapsed {
         visibility: visible
@@ -2499,20 +2507,11 @@ dd.script-list-ratings {
 
 @media screen and (min-width:800px) {
     .sidebarred-main-content {
-        max-width: calc(100% - 224px)
+        max-width: calc(100% - 220px)
     }
 }
 
-@media screen and (max-width:400px) {
-    .open-sidebar {
-        margin-right: 0
-    }
 
-    .close-sidebar {
-        padding-right: 2.4vw;
-        margin-right: -1em
-    }
-}
 
 .tabs {
     list-style: none;
