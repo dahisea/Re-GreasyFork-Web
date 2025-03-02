@@ -58,9 +58,26 @@ input[type=radio] {
     vertical-align: middle
 }
 
+input[type=search] {
+    width: 75%;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #1C1B1F;
+    background-color: #FFFBFE;
+    border: 1px solid #79747E;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box
+}
+
+input[type=search]:focus {
+    border-color: #EB7A77
+}
+
 input.search-submit {
     background-color: #FEF7F4;
     color: #FFF;
+    border: 1px solid #79747e;
     border-radius: 8px;
     padding: 12px 24px;
     font-size: 16px;
@@ -69,8 +86,7 @@ input.search-submit {
     cursor: pointer;
     margin-top: 8px;
     width: auto;
-    display: inline-block;
-    border: none
+    display: inline-block
 }
 
 button {
@@ -742,26 +758,8 @@ form.new_user+a {
     vertical-align: middle
 }
 
-.sidebar-search input[type="search"],
-.home-search input[type="search"] {
-    width: 75%;
-    padding: 12px 16px;
-    font-size: 16px;
-    color: #1C1B1F;
-    background-color: #FFFBFE;
-    border: 1px solid #79747E;
-    border-radius: 8px;
-    outline: none;
-    box-sizing: border-box
-}
-
-.sidebar-search input[type="search"]:focus,
-.home-search input[type="search"]:focus {
-    border-color: #EB7A77
-}
-
-.sidebar-search input[type="submit"],
-.home-search input[type="submit"] {
+.sidebar-search input[type=submit],
+.home-search input[type=submit] {
     background-color: #FEF7F4;
     color: #FFF;
     border: 1px solid #79747e;
@@ -776,30 +774,30 @@ form.new_user+a {
     display: inline-block
 }
 
-.sidebar-search input[type="submit"]:hover,
-.home-search input[type="submit"]:hover {
+.sidebar-search input[type=submit]:hover,
+.home-search input[type=submit]:hover {
     background-color: #E6E6E6
 }
 
-.sidebar-search input[type="submit"]:focus,
-.home-search input[type="submit"]:focus {
+.sidebar-search input[type=submit]:focus,
+.home-search input[type=submit]:focus {
     outline: none
 }
 
-.sidebar-search input[type="submit"]:active,
-.home-search input[type="submit"]:active {
+.sidebar-search input[type=submit]:active,
+.home-search input[type=submit]:active {
     background-color: #F3F3F3
 }
 
 @media screen and (max-width:680px) {
 
-    .sidebar-search input[type="search"],
-    .home-search input[type="search"] {
+    .sidebar-search input[type=search],
+    .home-search input[type=search] {
         font-size: 14px
     }
 
-    .sidebar-search input[type="submit"],
-    .home-search input[type="submit"] {
+    .sidebar-search input[type=submit],
+    .home-search input[type=submit] {
         width: 100%;
         margin-top: 12px
     }
