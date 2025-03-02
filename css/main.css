@@ -146,6 +146,20 @@ dt[title]>span {
     margin-bottom: 1em
 }
 
+.form-control input[type=submit] {
+    background-color: #EB7A77;
+    color: #FFF;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 8px;
+    width: auto;
+    display: inline-block
+}
+
 .form-control textarea,
 #ace-editor {
     width: 100%;
@@ -689,23 +703,17 @@ form input[type=radio]+label {
 }
 
 form.new_user input[type=submit] {
-    display: block;
-    width: 100%;
-    min-height: 34px;
-    box-sizing: border-box;
-    margin: .5em 0 0;
-    padding: 6px 8px;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 20px;
-    text-align: center;
-    vertical-align: middle;
-    color: #fff;
     background-color: #EB7A77;
-    border: 0px solid #ddd;
-    border-radius: 3px;
-    white-space: normal;
-    -webkit-appearance: button
+    color: #FFF;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 8px;
+    width: auto;
+    display: inline-block
 }
 
 form.new_user~br {
