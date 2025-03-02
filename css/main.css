@@ -2463,9 +2463,7 @@ dd.script-list-ratings {
 @media screen and (max-width:800px) {
     .sidebarred {
         display: block;
-        position: fixed;
-        top: 0;
-        right: 0
+        position: relative
     }
 
     .sidebar {
@@ -2501,7 +2499,11 @@ dd.script-list-ratings {
     }
 
     .open-sidebar.sidebar-collapsed {
-        visibility: visible
+        visibility: visible;
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0
     }
 }
 
