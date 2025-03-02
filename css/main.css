@@ -58,7 +58,7 @@ input[type=radio] {
     vertical-align: middle
 }
 
-input[type=search-submit] {
+input.search-submit {
     background-color: #FEF7F4;
     color: #FFF;
     border-radius: 8px;
@@ -69,26 +69,23 @@ input[type=search-submit] {
     cursor: pointer;
     margin-top: 8px;
     width: auto;
-    display: inline-block
+    display: inline-block;
+    border: none
 }
 
 button {
-    display: block;
-    width: 100%;
-    min-height: 34px;
-    box-sizing: border-box;
-    margin: .5em 0 0;
-    padding: 6px 8px;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 20px;
-    text-align: center;
-    vertical-align: middle;
-    color: #fff;
     background-color: #EB7A77;
-    border-radius: 3px;
-    white-space: normal;
-    -webkit-appearance: button
+    color: #FFF;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 8px;
+    width: auto;
+    display: inline-block;
+    border: none
 }
 
 .width-constraint {
@@ -161,7 +158,8 @@ dt[title]>span {
     cursor: pointer;
     margin-top: 8px;
     width: auto;
-    display: inline-block
+    display: inline-block;
+    border: none
 }
 
 .form-control textarea,
@@ -717,7 +715,8 @@ form.new_user input[type=submit] {
     cursor: pointer;
     margin-top: 8px;
     width: auto;
-    display: inline-block
+    display: inline-block;
+    border: none
 }
 
 form.new_user~br {
