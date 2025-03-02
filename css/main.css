@@ -733,7 +733,7 @@ form.new_user+a {
 
 .sidebar-search input[type="search"],
 .home-search input[type="search"] {
-    width: 100%;
+    width: 75%;
     padding: 12px 16px;
     font-size: 16px;
     color: #1C1B1F;
@@ -751,7 +751,7 @@ form.new_user+a {
 
 .sidebar-search input[type="submit"],
 .home-search input[type="submit"] {
-    background-color: transparent;
+    background-color: #FEF7F4;
     color: #FFF;
     border: 1px solid #79747e;
     border-radius: 8px;
@@ -1468,11 +1468,12 @@ a.discussion-title,
 nav nav {
     position: absolute;
     right: 0;
-    background-color: #FFFCFB;
+    background-color: #FFE8E0;
     min-width: 50%;
     display: none;
     padding: 5px 0;
-    z-index: 10
+    z-index: 10;
+    top: 100%
 }
 
 nav nav li {
@@ -1488,8 +1489,6 @@ nav nav li a {
 nav a:hover+nav,
 nav nav:hover,
 nav a:focus+nav {
-    position: relative;
-    padding-right: 35px;
     display: block
 }
 
@@ -2493,14 +2492,14 @@ dd.script-list-ratings {
         margin-right: -16px;
         padding: .25em 1.2vw .25em 16px
     }
-    
+
     .open-sidebar {
         margin-right: 0
     }
 
     .open-sidebar.sidebar-collapsed {
         visibility: visible;
-        display: block;
+        display: flex;
         position: fixed;
         top: 0;
         right: 0
@@ -2512,8 +2511,6 @@ dd.script-list-ratings {
         max-width: calc(100% - 220px)
     }
 }
-
-
 
 .tabs {
     list-style: none;
