@@ -76,7 +76,9 @@ input[type=search]:focus {
 
 button,
 form.new_user input[type=submit],
-.form-control input[type=submit] {
+.form-control input[type=submit],
+.post-reply input[type=submit],
+.edit-comment-form input[type=submit] {
     background-color: #854836;
     color: #FFF;
     border-radius: 8px;
@@ -274,7 +276,7 @@ label.subselection-radio-title {
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 12px;
-    padding-left: 16px;
+    padding-left: 36px;
     position: relative
 }
 
@@ -2481,7 +2483,7 @@ dd.script-list-ratings {
         visibility: visible;
         display: flex;
         float: right;
-        position: relative;
+        position: absolute;
         top: 28px;
         border: none
     }
