@@ -1375,7 +1375,7 @@ a.discussion-title,
 
 #main-header h1 {
     font-size: 72px;
-    margin: 0;
+    margin-left: 28px
     letter-spacing: -2px
 }
 
@@ -1547,12 +1547,12 @@ nav .with-submenu>a:after {
     cursor: pointer;
     position: absolute;
     right: 12px;
-    top: 8px;
+    top: 2px;
     font-size: 18px;
     color: #854836;
     background-color: transparent;
     border: none;
-    padding: 6px;
+    padding: 2px;
     border-radius: 50%;
     transition: background-color 0.2s ease, transform 0.2s ease;
     display: flex;
@@ -1626,7 +1626,7 @@ nav .with-submenu>a:after {
 
 @media screen and (max-width:400px) {
     #site-name {
-        margin-left: 28px
+        margin-left: 8px
     }
 }
 
