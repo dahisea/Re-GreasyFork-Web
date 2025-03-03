@@ -1546,8 +1546,8 @@ nav .with-submenu>a:after {
 .mobile-nav-opener {
     cursor: pointer;
     position: absolute;
-    right: 16px;
-    top: 10px;
+    right: 12px;
+    top: 8px;
     font-size: 18px;
     color: #854836;
     background-color: transparent;
@@ -1558,8 +1558,8 @@ nav .with-submenu>a:after {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     line-height: 1;
     box-sizing: border-box
 }
@@ -1626,7 +1626,7 @@ nav .with-submenu>a:after {
 
 @media screen and (max-width:400px) {
     #site-name {
-        margin-left: 8px
+        margin-left: 28px
     }
 }
 
