@@ -1375,7 +1375,7 @@ a.discussion-title,
 
 #main-header h1 {
     font-size: 72px;
-    margin-left: 28px
+    margin-left: 28px;
     letter-spacing: -2px
 }
 
@@ -1547,8 +1547,8 @@ nav .with-submenu>a:after {
     cursor: pointer;
     position: absolute;
     right: 12px;
-    top: 2px;
-    font-size: 18px;
+    top: 16px;
+    font-size: 22px;
     color: #854836;
     background-color: transparent;
     border: none;
