@@ -5,7 +5,7 @@ html {
 body {
     margin: 0;
     background-color: #FFF0EB;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', Noto Serif SC, sans-serif, "Segoe UI Emoji"
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', Noto Sans SC, sans-serif, "Segoe UI Emoji"
 }
 
 body::-webkit-scrollbar {
