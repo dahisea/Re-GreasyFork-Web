@@ -4,7 +4,7 @@ html {
 
 body {
     margin: 0;
-    background-color: #FFE8E0;
+    background-color: #FFF0EB;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', Noto Serif SC, sans-serif, "Segoe UI Emoji"
 }
 
@@ -27,7 +27,7 @@ textarea {
 }
 
 a {
-    color: #EB7A77;
+    color: #854836;
     font-weight: 500;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
@@ -41,7 +41,7 @@ a:hover {
 
 a:focus {
     color: #C95A57;
-    outline: 2px solid #EB7A77;
+    outline: 2px solid #854836;
     outline-offset: 2px
 }
 
@@ -50,7 +50,7 @@ a:active {
 }
 
 a:visited {
-    color: #D7C4BB
+    color: #CD9479
 }
 
 input[type=checkbox],
@@ -71,26 +71,13 @@ input[type=search] {
 }
 
 input[type=search]:focus {
-    border-color: #EB7A77
+    border-color: #854836
 }
 
-input.search-submit {
-    background-color: #FEF7F4;
-    color: #FFF;
-    border: 1px solid #79747e;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-top: 8px;
-    width: auto;
-    display: inline-block
-}
-
-button {
-    background-color: #EB7A77;
+button,
+form.new_user input[type=submit],
+.form-control input[type=submit] {
+    background-color: #854836;
     color: #FFF;
     border-radius: 8px;
     padding: 12px 24px;
@@ -161,21 +148,6 @@ dt[title]>span {
 
 .form-control {
     margin-bottom: 1em
-}
-
-.form-control input[type=submit] {
-    background-color: #EB7A77;
-    color: #FFF;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-top: 8px;
-    width: auto;
-    display: inline-block;
-    border: none
 }
 
 .form-control textarea,
@@ -720,21 +692,6 @@ form input[type=radio]+label {
     }
 }
 
-form.new_user input[type=submit] {
-    background-color: #EB7A77;
-    color: #FFF;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-top: 8px;
-    width: auto;
-    display: inline-block;
-    border: none
-}
-
 form.new_user~br {
     display: none
 }
@@ -759,9 +716,10 @@ form.new_user+a {
 }
 
 .sidebar-search input[type=submit],
-.home-search input[type=submit] {
+.home-search input[type=submit],
+input.search-submit {
     background-color: #FEF7F4;
-    color: #FFF;
+    color: #854836;
     border: 1px solid #79747e;
     border-radius: 8px;
     padding: 12px 24px;
@@ -1110,7 +1068,7 @@ li.L9 {
 .expander {
     cursor: pointer;
     display: block;
-    color: #EB7A77;
+    color: #854836;
     border-radius: 3px;
     background-color: #f2e5e5;
     position: absolute;
@@ -1409,7 +1367,7 @@ a.discussion-title,
 #main-header a,
 #main-header a:visited,
 #main-header a:active {
-    color: #EB7A77;
+    color: #854836;
     text-decoration: none
 }
 
@@ -1444,7 +1402,7 @@ a.discussion-title,
 }
 
 #site-nav>nav a:hover {
-    color: #EB7A77
+    color: #854836
 }
 
 #site-nav>nav {
@@ -1492,7 +1450,7 @@ a.discussion-title,
 nav nav {
     position: absolute;
     right: 0;
-    background-color: #FFE8E0;
+    background-color: #FFF0EB;
     min-width: 50%;
     display: none;
     padding: 5px 0;
@@ -1589,7 +1547,7 @@ nav .with-submenu>a:after {
     right: 16px;
     top: 10px;
     font-size: 18px;
-    color: #EB7A77;
+    color: #854836;
     background-color: transparent;
     border: none;
     padding: 6px;
@@ -1626,7 +1584,7 @@ nav .with-submenu>a:after {
     position: absolute;
     top: calc(100% + 2px);
     right: -1.2vw;
-    background-color: #FFE8E0;
+    background-color: #FFF0EB;
     z-index: 1000;
     border-radius: 0 0 0 12px;
     font-size: 22px
@@ -2469,14 +2427,12 @@ dd.script-list-ratings {
 .open-sidebar {
     visibility: hidden;
     float: right;
-    background-color: #fff;
+    background-color: #FFF0EB;
     padding: 2px 1.2vw;
     margin-left: 1.2vw;
     margin-right: -1.2vw;
     border-radius: 3px 0 0 3px;
-    border-width: 1px 0 1px 1px;
-    border-style: solid;
-    border-color: #DC9F84
+    border: none
 }
 
 .sidebar-title {
@@ -2524,9 +2480,10 @@ dd.script-list-ratings {
     .open-sidebar.sidebar-collapsed {
         visibility: visible;
         display: flex;
-        position: fixed;
-        top: 0;
-        right: 0
+        float: right;
+        position: relative;
+        top: 28px;
+        border: none
     }
 }
 
