@@ -249,8 +249,8 @@ label.subselection-radio-title {
 .discussion-list,
 .notification-list {
     position: relative;
-    margin: 16px;
-    padding: 0 1em 1em;
+    margin: 24px 16px;
+    padding: 16px 1em 1em 2em;
     background-color: #FFFCFB;
     border-radius: 16px
 }
@@ -276,7 +276,7 @@ label.subselection-radio-title {
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 12px;
-    padding-left: 36px;
+    padding-left: 16px;
     position: relative
 }
 
