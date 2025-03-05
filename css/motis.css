@@ -1,5 +1,4 @@
 ins.adsbygoogle[data-anchor-status="displayed"] iframe {
-    opacity: 0.2;
-    transition: opacity 1s;
-    filter: blur(3px) brightness(0.8) contrast(1.2)
+    transition: filter 1s;
+    filter: blur(3px) brightness(1.8)
 }
