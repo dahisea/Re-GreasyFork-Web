@@ -1,5 +1,5 @@
-ins.adsbygoogle[data-anchor-status="displayed"] iframe,
-ins.adsbygoogle iframe[data-load-complete="true"] {
-    opacity: 0;
+ins.adsbygoogle[data-anchor-status="displayed"] iframe {
+    opacity: 0.2;
     transition: opacity 1s;
+    filter: blur(3px) brightness(0.8) contrast(1.2)
 }
