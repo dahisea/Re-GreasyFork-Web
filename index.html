@@ -1,90 +1,176 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+
+<html>
 <head>
-<title>GreasyFork 镜像站 国内加速访问与用户脚本下载 Mirror GFork by Dahi - Greasy Fork - 安全且实用的用户脚本站</title>
-<meta name="description" content="GFork - GreasyFork 镜像站，提供脚本极速下载与访问服务，专为国内用户优化，解决 GreasyFork 访问慢、脚本下载难的问题 Greasy Fork is a free site providing user scripts to improve your web browsing experience.">
-<meta name="viewport" content="width=device-width, initial-scale=1"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758644447684310" crossorigin="anonymous"></script><link rel="icon" herf="https://s21.ax1x.com/2025/02/21/pEQznoQ.png"><script src="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/js/main.js" crossorigin="anonymous" type="module"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<title>油叉GreasyFork(Mirror) 鏡像官方の站 - 国内加速访问 - By Dahi - Greasy Fork - 安全且实用的用户脚本站</title>
+<meta name="description" content="油叉の官方站，享受极速服务。GFORK专为中国境内用户优化，解决访问慢、脚本下载难的问题。 Greasy Fork is a free site providing user scripts to improve your web browsing experience.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/css/mortis.css" rel="stylesheet"><meta name="keywords" content="GreasyFolk, 镜 , 像, 油叉中文站, 脚本下载加速, 访问优化, 油猴脚本, 用户脚本, 脚本管理器, Tampermonkey, Violentmonkey, 脚本开发, 脚本安装, 脚本分享, 脚本教程, 浏览器扩展, 脚本社区, 脚本推荐, 脚本排行榜, 脚本工具, 用户脚本资源, 脚本插件, 脚本加速, 脚本镜像下载, 高速下载, 中文脚本, 油猴中文, 油猴教程, 油猴插件, 油猴管理器, 油猴脚本推荐, 油猴脚本下载, 油猴脚本安装, 油猴脚本开发, 油猴脚本排行榜, 油猴脚本加速, 油猴脚本镜像, 国内资源" /><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758644447684310" crossorigin="anonymous"></script><link rel="icon" herf="https://s21.ax1x.com/2025/02/21/pEQznoQ.png"><script src="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/js/main.js" crossorigin="anonymous" type="module"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KZFGTVN7');</script><link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/css/main.css" media="screen" /><link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/css/mater.css" /><script src="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/js/notice.js" crossorigin="anonymous"></script><script src="https://cdn.jsdmirror.com/gh/dahisea/w_file@main/assets/js/general-foot.js" crossorigin="anonymous"></script><link href="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/css/ads.css" rel="stylesheet"></head>
-
-    <header id="main-header">
-        <div class="width-constraint">
-            <div id="site-name">
-                <div id="site-name-text">
-                    <h1>Greasy Fork</h1>
-                </div>
-            </div>
-            <div id="site-nav">
-                <div id="nav-user-info"><span class="user-profile-link"><a href="/zh-CN/users/sign_in">登入</a></span><span class="sign-out-link">[<a rel="nofollow" data-method="delete" href="/zh-CN/users/sign_out">登出</a>]</span>
-                    <form class="language-selector" action="/"><select class="language-selector-locale" name="locale">
-                            <option data-language-url="/en?locale_override=1" value="en">English</option>
-                            <option data-language-url="/ja?locale_override=1" value="ja">日本語</option>
-                            <option data-language-url="/zh-CN?locale_override=1" value="zh-CN" selected>简体中文</option>
-                            <option data-language-url="/zh-TW?locale_override=1" value="zh-TW">繁體中文</option>
-                        </select><input class="language-selector-submit" type="submit" value="→"><input type="hidden" name="locale_override" value="1"></form>
-                </div>
-                <nav>
-                    <li class="scripts-index-link"><a href="/zh-CN/scripts">脚本</a></li>
-                    <li class="help-link"><a href="https://github.com/dahisea/GreasyFork-Mirror">此镜像帮助</a></li>
-                    <li class="with-submenu"><a href="#" onclick="return false">更多</a>
-                        <nav>
-                    <li><a href="/zh-CN/search">高级搜索</a></li>
-                    <li><a href="/zh-CN/scripts/libraries">库</a></li>
-                    <li><a href="/zh-CN/moderator_actions">管理日志</a></li>
-                </nav>
-                </li>
-                </nav>
-            </div>
-            <div id="mobile-nav">
-                <div class="mobile-nav-opener">☰</div>
-                <nav class="collapsed">
-                    <li class="scripts-index-link"><a href="/zh-CN/scripts">脚本</a></li>
-                    <li class="forum-link"><a href="/zh-CN/discussions">论坛</a></li>
-                    <li class="help-link"><a href="https://github.com/dahisea/GreasyFork-Mirror">此镜像帮助</a></li>
-                    <li><a href="/zh-CN/search">高级搜索</a></li>
-                    <li><a href="/zh-CN/users">用户列表</a></li>
-                    <li><a href="/zh-CN/scripts/libraries">库</a></li>
-                    <li><a href="/zh-CN/moderator_actions">管理日志</a></li>
-                    <li class="multi-link-nav"><span class="user-profile-link"><a href="/zh-CN/users/sign_in">登入</a></span><span class="sign-out-link">[<a rel="nofollow" data-method="delete" href="/zh-CN/users/sign_out">登出</a>]</span></li>
-                    <li>
-                        <form class="language-selector" action="/"><select class="language-selector-locale" name="locale">
-                                <option data-language-url="/en?locale_override=1" value="en">English</option>
-                                <option data-language-url="/ja?locale_override=1" value="ja">日本語</option>
-                                <option data-language-url="/zh-CN?locale_override=1" value="zh-CN" selected>简体中文</option>
-                                <option data-language-url="/zh-TW?locale_override=1" value="zh-TW">繁體中文</option>
-                            </select><input class="language-selector-submit" type="submit" value="→"><input type="hidden" name="locale_override" value="1"></form>
-                    </li>
-                </nav>
-            </div>
-            <script>
-                /* submit is handled by js if enabled */
-                document.querySelectorAll(".language-selector-submit").forEach((lss) => { lss.style.display = "none" })
-            </script>
-        </div>
-    </header>
-    <div class="width-constraint">
-        <section class="text-content">
-            <h2 class="super-title">Welcome to Greasy Fork, a site for user scripts. This is a mirror site by dahi.</h2>
-            <div id="home-script-nav">
-                <form class="home-search" action="/zh-CN/scripts" accept-charset="UTF-8" method="get"><input type="search" name="q" placeholder="请搜索用户脚本"><input type="submit" value="🔎" class="search-submit"></form>
-                <div id="home-top-sites">脚本适用于：<a href="/zh-CN/scripts/by-site">这些网站</a></div>
-            </div>
-            <section>
-                <h3>用户脚本是什么？</h3>
-                <p>用户脚本让您掌控网页浏览体验。安装后，它们能自动改善您访问网站的使用体验，有些能为网站添加新功能，有些能使网站更易于使用，有些能让网站隐藏烦人内容。Greasy Fork 上的用户脚本都是由用户编写并向全世界发布，您能免费安装它们，并且轻松使用。</p>
-            </section>
-        </section>
-    </div>
-    <footer>
-        <div class="width-constraint">
-            <section class="text-content">
-                <a href="https://icp.gov.moe/?keyword=20213149" target="_blank">萌ICP备20213149号</a>
-
-            </section>
-        </div>
-    </footer>
+<body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFGTVN7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header id="main-header">
+<div class="width-constraint">
+<div id="site-name">
+<div id="site-name-text"><ins class="adsbygoogle"
+style="display:block"
+data-ad-format="fluid"
+data-ad-layout-key="-gy+2i+5x-ek+82"
+data-ad-client="ca-pub-3758644447684310"
+data-ad-slot="1394739154"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+</div>
+<div id="site-nav">
+<div id="nav-user-info">
+<span class="sign-in-link"><a rel="nofollow" href="/zh-CN/users/sign_in?return_to=%2Fzh-CN">登录</a></span>
+<form class="language-selector" action="/scripts?q=">
+<select class="language-selector-locale" name="locale" data-translate-url="https://github.com/greasyfork-org/greasyfork/wiki/Translating-Greasy-Fork">
+<option data-language-url="/zh-CN/scripts?q=" value="zh-CN" selected>
+简体中文
+</option>
+<option data-language-url="/zh-TW/scripts?q=" value="zh-TW">
+繁體中文
+</option>
+<option data-language-url="/ja/scripts?q=" value="ja">
+日本語
+</option>
+<option data-language-url="/en/scripts?q=" value="en">
+English
+</option>
+<option value="help">Help us translate!</option>
+</select><input class="language-selector-submit" type="submit" value="→">
+</form>
+</div>
+<nav>
+<li class="scripts-index-link"><a href="/zh-CN/scripts">脚本</a></li>
+<li class="help-link"><a href="/zh-CN/help">帮助</a></li>
+<li class="with-submenu">
+<a href="#" onclick="return false">更多</a>
+<nav>
+<li><a href="/zh-CN/search">高级搜索</a></li>
+<li><a href="/zh-CN/scripts/libraries">库</a></li>
+</nav>
+</li>
+</nav>
+</div>
+<div id="mobile-nav">
+<div class="mobile-nav-opener">☰</div>
+<nav class="collapsed">
+<li class="scripts-index-link"><a href="/zh-CN/scripts">脚本</a></li>
+<li class="help-link"><a href="/zh-CN/help">帮助</a></li>
+<li><a href="/zh-CN/search">高级搜索</a></li>
+<li><a href="/zh-CN/scripts/libraries">库</a></li>
+<li class="multi-link-nav">
+<span class="sign-in-link"><a rel="nofollow" href="/zh-CN/users/sign_in?return_to=%2Fzh-CN">登录</a></span>
+</li>
+<li>            <form class="language-selector" action="/scripts?q=">
+<select class="language-selector-locale" name="locale" data-translate-url="https://github.com/greasyfork-org/greasyfork/wiki/Translating-Greasy-Fork">
+<option data-language-url="/zh-CN/scripts?q=" value="zh-CN" selected>
+简体中文
+</option>
+<option data-language-url="/zh-TW/scripts?q=" value="zh-TW">
+繁體中文
+</option>
+<option data-language-url="/ja/scripts?q=" value="ja">
+日本語
+</option>
+<option data-language-url="/en/scripts?q=" value="en">
+English
+</option>
+<option value="help">Help us translate!</option>
+</select><input class="language-selector-submit" type="submit" value="→">
+</form>
+</li>
+</nav>
+</div>
+<script>
+/* submit is handled by js if enabled */
+document.querySelectorAll(".language-selector-submit").forEach((lss) => { lss.style.display = "none" })
+</script>
+</div>
+</header>
+<div class="width-constraint">
+<section class="text-content">
+<h2 class="super-title">国内加速访问，轻松下载脚本</h2>
+<div id="home-script-nav">
+<form class="home-search" action="/zh-CN/scripts" accept-charset="UTF-8" method="get">
+<input type="search" name="q" placeholder="搜索用户脚本">
+<input type="submit" value="🔎" class="search-submit">
+</form>  <div id="home-top-sites">
+脚本适用于：
+<a href="/zh-CN/scripts/by-site/baidu.com">baidu.com</a>
+<a href="/zh-CN/scripts/by-site/bilibili.com">bilibili.com</a>
+<a href="/zh-CN/scripts/by-site/qq.com">qq.com</a>
+<a href="/zh-CN/scripts/by-site/youtube.com">youtube.com</a>
+<a href="/zh-CN/scripts/by-site/chaoxing.com">chaoxing.com</a>
+<a href="/zh-CN/scripts/by-site">更多...</a>
+</div>
+</div>
+<section>
+<h3>用户脚本是什么？</h3>
+<p>用户脚本让您掌控网页浏览体验。安装后，它们能自动改善您访问网站的使用体验，有些能为网站添加新功能，有些能使网站更易于使用，有些能让网站隐藏烦人内容。Greasy Fork 上的用户脚本都是由用户编写并向全世界发布，您能免费安装它们，并且轻松使用。</p>
+</section>
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-3758644447684310"
+data-ad-slot="4095096984"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><br>
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-3758644447684310"
+data-ad-slot="4095096984"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><br>
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-3758644447684310"
+data-ad-slot="4095096984"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><br>
+<div class="ad ad-ga" id="home-ad">
+<br><ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-3758644447684310"
+data-ad-slot="4095096984"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</section>
+</div>
+<footer><section class="text-content"><br><p>ICP : 萌ICP備20213149号｜ICP SYSTEM:<a href="https://icp.gov.moe/?keyword=20213149" target="_blank">https://icp.gov.moe</a></p><p>ICP : 团ICP備25252525号｜ICP SYSTEM:<a href="https://icp.yuncheng.fun/id.php?keyword=25252525" target="_blank">https://icp.yuncheng.fun</a></p><p>公安備案番号：萌公网安備 11010502030189 号</p><p>序幕展開<span id="htmer_time"></span></p><div id="api-data">少女祈祷中...</div><br>
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-3758644447684310"
+data-ad-slot="4095096984"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><br></section></footer><br>
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-format="autorelaxed"
+data-ad-client="ca-pub-3758644447684310"
+data-ad-slot="3934604756"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><br>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"91e369a56d4cebe5","version":"2025.1.0","r":1,"token":"519c082530b943b0af366c07e004753c","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
 </body>
-
 </html>
