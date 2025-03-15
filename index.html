@@ -1,4 +1,41 @@
-<html><head><title>GFork - 国内加速访问与脚本下载 - Greasy Fork - 安全且实用的用户脚本站 | GreasyFork镜像站</title><meta name="description" content="GFORK专为国内用户优化，解决访问慢、脚本下载难的问题。GreasyFork鏡像站主页Mirrored官方の站 国内加速访问与脚本下载 - Greasy Fork is a free site providing user scripts to improve your web browsing experience."><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="keywords" content="GFork, 油叉中文站, 油猴脚本, 用户脚本, JavaScript, Tampermonkey, Violentmonkey"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758644447684310" crossorigin="anonymous"></script><link rel="icon" href="https://s21.ax1x.com/2025/02/21/pEQznoQ.png"><script src="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/js/main.js" crossorigin="anonymous" type="module"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<html><head><title>GFork - 国内加速访问与脚本下载 - Greasy Fork - 安全且实用的用户脚本站 | GreasyFork镜像站</title><meta name="description" content="GFORK专为国内用户优化，解决访问慢、脚本下载难的问题。GreasyFork鏡像站主页Mirrored官方の站 国内加速访问与脚本下载 - Greasy Fork is a free site providing user scripts to improve your web browsing experience."><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="keywords" content="GFork, 油叉中文站, 油猴脚本, 用户脚本, JavaScript, Tampermonkey, Violentmonkey"><script>// 动态注入模态框
+const modalHTML = `
+  <div class="modal__overlay">
+    <div class="modal__container" role="dialog" aria-modal="true">
+      <header class="modal__header">
+        <h3 class="modal__title" id="notification-modal-title">
+          公告
+        </h3>
+        <!-- 关闭按钮 -->
+        <button class="modal__close" aria-label="关闭公告">&times;</button>
+      </header>
+      <main class="modal__content">
+        ${parsedHTML} <!-- 注入解析后的 HTML -->
+      </main>
+    </div>
+  </div>
+`;
+
+// 将模态框注入到 body 中
+document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+// 获取模态框和关闭按钮
+const modalOverlay = document.querySelector('.modal__overlay');
+const closeButton = document.querySelector('.modal__close');
+
+// 关闭模态框的逻辑
+const closeModal = () => {
+  console.log('关闭模态框'); // 调试日志
+  modalOverlay.remove(); // 从 DOM 中移除模态框
+};
+
+// 绑定关闭事件
+closeButton.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', (event) => {
+  if (event.target === modalOverlay) {
+    closeModal(); // 点击遮罩层时关闭模态框
+  }
+});</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758644447684310" crossorigin="anonymous"></script><link rel="icon" href="https://s21.ax1x.com/2025/02/21/pEQznoQ.png"><script src="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/js/main.js" crossorigin="anonymous" type="module"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
