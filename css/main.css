@@ -1,6 +1,3 @@
-html {
-    overflow-y: scroll
-}
 
 html {
     overflow-y: scroll
@@ -9,9 +6,9 @@ html {
 body {
     margin: 0;
     background-color: #FFF0EB;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif, "Noto Emoji";
+    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans SC", "Noto Emoji", Roboto, Arial, sans-serif;
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.8;
     color: #333
 }
 
@@ -49,7 +46,7 @@ textarea {
 
 a {
     color: #854836;
-    font-weight: 500;
+    font-weight: 700;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
     transition: color 0.2s ease, text-decoration 0.2s ease
@@ -57,6 +54,7 @@ a {
 
 a:hover {
     color: #FF9B99;
+    text-decoration: underline;
     font-weight: bold
 }
 
@@ -747,7 +745,6 @@ input.search-submit {
     border-radius: 8px;
     padding: 12px 24px;
     font-size: 16px;
-    font-weight: 500;
     text-transform: uppercase;
     cursor: pointer;
     margin-top: 8px;
@@ -1042,8 +1039,7 @@ li.L9 {
 .diff del,
 .diff ins,
 .diff span {
-    white-space: pre;
-    font-family: courier
+    white-space: pre
 }
 
 .diff del strong {
@@ -1064,11 +1060,6 @@ li.L9 {
     background: none repeat scroll 0 0 gray
 }
 
-.diff del,
-.diff ins,
-.diff span {
-    font-family: monospace
-}
 
 .diff {
     max-height: calc(100vh - 54px);
@@ -1541,7 +1532,7 @@ nav .with-submenu>a:after {
     }
 
     #site-nav>nav {
-        height: 35px;
+        height: 42px;
         bottom: unset
     }
 
@@ -1569,8 +1560,8 @@ nav .with-submenu>a:after {
     cursor: pointer;
     position: absolute;
     right: 12px;
-    top: 16px;
-    font-size: 22px;
+    top: 9px;
+    font-size: 25px;
     color: #854836;
     background-color: transparent;
     border: none;
