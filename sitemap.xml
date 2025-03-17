@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+>
+
+<url>
+ <loc>https://gfork.dahi.icu/zh-hans/scripts</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/zh-hans/help</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/zh-hans/search</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/zh-hans/scripts/libraries</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site/baidu.com</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site/bilibili.com</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site/youtube.com</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site/qq.com</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site/youku.com</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/page/applist</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/page/tos</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://gfork.dahi.icu/</loc>
+ <priority>0.3</priority>
+ <lastmod>2025-03-17</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+</urlset>
