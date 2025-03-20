@@ -6,12 +6,6 @@
        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
 >
 
-<url>
- <loc>https://gfork.dahi.icu/zh-hans/scripts</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
 
 <url>
  <loc>https://gfork.dahi.icu/zh-hans/help</loc>
@@ -34,47 +28,7 @@
  <changefreq>weekly</changefreq>
 </url>
 
-<url>
- <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site/baidu.com</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
 
-<url>
- <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site/bilibili.com</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site/youtube.com</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site/qq.com</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site/youku.com</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>https://gfork.dahi.icu/zh-hans/scripts/by-site</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
 
 <url>
  <loc>https://gfork.dahi.icu/page/applist</loc>
