@@ -3,11 +3,7 @@
 <title>GreasyFork镜像加速站 | GFork - 油叉脚本加速访问与下载服务</title>
 <meta name="description" content="GreasyFork镜像站 - GFork 专为用户优化，解决国内地区GreasyFork访问慢、脚本下载难的问题。">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="keywords" content="油叉, 资源镜像, 国内加速, 油猴脚本, 用户脚本, JavaScript, Tampermonkey, Violentmonkey, zh" /><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758644447684310" crossorigin="anonymous"></script><link rel="icon" href="https://s21.ax1x.com/2025/02/21/pEQznoQ.png"><script src="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/js/gf-index.js" crossorigin="anonymous"></script><script src="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/js/main.js" crossorigin="anonymous" type="module"></script><script src="https://cdn.jsdmirror.com/npm/@hotwired/turbo@latest/dist/turbo.es2017-esm.min.js" crossorigin="anonymous" type="module"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KZFGTVN7');</script><link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/css/main.css" media="screen" /><link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/css/mater.css" /><link href="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/css/ads.css" rel="stylesheet"></head>
+<meta name="keywords" content="油叉, 资源镜像, 国内加速, 油猴脚本, 用户脚本, JavaScript, Tampermonkey, Violentmonkey, zh, 打不开, 下载加速" /><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758644447684310" crossorigin="anonymous"></script><link rel="icon" href="https://s21.ax1x.com/2025/02/21/pEQznoQ.png"><script src="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/js/gf-index.js" crossorigin="anonymous"></script><script src="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/js/main.js" crossorigin="anonymous" type="module"></script><script src="https://cdn.jsdmirror.com/npm/@hotwired/turbo@latest/dist/turbo.es2017-esm.min.js" crossorigin="anonymous" type="module"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KZFGTVN7');</script><link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/css/main.css" media="screen" /><link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/css/mater.css" /><link href="https://cdn.jsdmirror.com/gh/dahisea/re-greasyfork-assets@main/css/ads.css" rel="stylesheet"></head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFGTVN7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header id="main-header">
 <div class="width-constraint">
@@ -33,38 +29,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </li>
 </nav>
 </div>
-<script>
-/* submit is handled by js if enabled */
-document.querySelectorAll(".language-selector-submit").forEach((lss) => { lss.style.display = "none" })
-</script>
 </div>
 </header>
 <div class="width-constraint">
 <section class="text-content">
 <h1 class="super-title">GreasyFork，加速。</h1>
 <div id="home-script-nav">
-<form class="home-search" action="/zh-hans/scripts" accept-charset="UTF-8" method="get">
-  <input type="search" name="q" placeholder="输入关键词" required>
-  <input type="hidden" name="filter_locale" value="0">
-  <input type="submit" value="搜索关键词" class="search-submit">
-</form><br>
-    <form id="site-search-form" class="home-search">
-        <input type="search" id="site-input" placeholder="输入站点域名（如 bilibili.com）">
-        <button type="button" onclick="handleSiteSearch()">查询</button>
-    </form>
-</div>
-<section>
-    <p>支持 Greasy Fork 脚本下载更新文件加速访问，解决访问慢、脚本下载难的问题。</p>
-    <input type="search" id="inputUrl" placeholder="贴入 Greasyfork 脚本文件链接">
-    <button onclick="replaceUrl()">加速</button>
-    <p>加速后的资源链接会显示在下方</p>
-    <p id="outputUrl" style="font-weight: bold;"></p>
-    <p id="errorMessage"></p>
+<form class="home-search" action="/zh-hans/scripts" accept-charset="UTF-8" method="get"><input type="search" name="q" placeholder="输入关键词" required><input type="hidden" name="filter_locale" value="0"><input type="submit" value="搜索关键词" class="search-submit"></form></div><input type="search" id="site-input" placeholder="输入站点域名（bilibili.com）"><button type="button" onclick="handleSiteSearch()">查询</button><br><br>
 </section>
-<section>
+<section class="text-content">
+<p>支持 Greasy Fork 脚本下载更新文件加速访问，解决访问慢、脚本下载难的问题。</p><input type="search" id="inputUrl" placeholder="贴入 Greasyfork 脚本文件链接"><button onclick="replaceUrl()">加速</button>
+<p>加速后的资源链接会显示在下方</p><p id="outputUrl" style="font-weight: bold;"></p><p id="errorMessage"></p><br><br>
+</section>
+<section class="text-content">
 <h3>什么是JS脚本？</h3>
 <p>油猴JS脚本让您掌控网页浏览体验。安装后，它们能自动改善您访问网站的使用体验，有些能为网站添加新功能，有些能使网站更易于使用，有些能让网站隐藏烦人内容。油叉上的用户脚本均由网友编写并向世界发布，您能免费安装它们，并且轻松使用。本站承诺此加速服务仅对脚本代码中的源站API地址进行修改，请谨慎选择脚本进行安装，部分恶意的脚本可能对您的数据进行非法操作，本站对脚本可靠性无法负责。</p>
-<a href="/page/applist">各平台可用脚本扩展框架</a><br>
+<br><a href="/page/applist">各平台可用脚本扩展框架</a><br><br>
 </section>
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br>
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br>
@@ -73,5 +53,4 @@ document.querySelectorAll(".language-selector-submit").forEach((lss) => { lss.st
 </div>
 <footer><section class="text-content"><br><form class="language-selector" action="/" method="GET"><select class="language-selector-locale" id="locale-select" name="locale" aria-label="选择网站语言"><option value="" disabled selected>选择语言</option><option data-language-url="/zh-hans" value="zh-CN">简体字</option><option data-language-url="/zh-hant" value="zh-TW">繁體字</option><option data-language-url="/ja" value="ja">日本語</option><option data-language-url="/en" value="en">ＥＮＧ</option></select></form><br><p>ICP : 萌ICP備20213149号｜ICP SYSTEM:<a href="https://icp.gov.moe/?keyword=20213149" target="_blank">https://icp.gov.moe</a></p><p>ICP : 团ICP備25252525号｜ICP SYSTEM:<a href="https://icp.yuncheng.fun/id.php?keyword=25252525" target="_blank">https://icp.yuncheng.fun</a></p><p>公安備案番号：萌公网安備 11010502030189 号</p><br><a href="/page/tos">用戶協議</a><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br></section></footer><br><ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-3758644447684310" data-ad-slot="3934604756"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br>
 </body>
-
 </html>
