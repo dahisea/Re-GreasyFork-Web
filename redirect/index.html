@@ -1,53 +1,200 @@
-<!doctype html><html lang="zh-TW"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>前往安裝頁面中，沒反應請手動刷新</title><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758644447684310" crossorigin="anonymous"></script><script>
-        window.onload = function() {
-            const allowedDomain = 'https://update.greasyfork.org.cn/';
-            const targetContainerId = 'redirect-status';
-            const hash = window.location.hash;
-            if (!hash || !(hash.startsWith("#http://") || hash.startsWith("#https://"))) {
-                return;
-            }
-            const targetUrl = hash.substring(1);
-            const finalUrl = targetUrl + window.location.search;
-            const container = document.getElementById(targetContainerId);
-            if (!container) {
-                console.error("錯誤：找不到指定的容器 DIV");
-                return;
-            }
-            if (targetUrl.startsWith(allowedDomain)) {
-                const meta = document.createElement("meta");
-                meta.setAttribute("http-equiv", "refresh");
-                meta.setAttribute("content", `0; url=${finalUrl}`);
-                document.head.appendChild(meta);
+<!doctype html><html lang="zh-TW"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>腳本連結安全重定向驗證中</title><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758644447684310" crossorigin="anonymous"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>
+:root {
+--primary: #4361ee;
+--success: #4cc9f0;
+--error: #f72585;
+--warning: #f8961e;
+--dark: #212529;
+--light: #f8f9fa;
+--gray: #6c757d;
+--transition: all 0.3s ease;
+}
 
-                container.innerHTML = `
-                    <div class="jump-info">
-                        <p>✅ 安全跳轉驗證通過</p>
-                        <p>即將跳轉至: <a href="${finalUrl}" rel="noopener noreferrer">${finalUrl}</a></p>
-                        <p>若未自動跳轉，請點擊上方連結</p>
-                    </div>
-                `;
-            } else {
-                container.innerHTML = `
-                    <div class="error-info">
-                        <p>❌ 安全限制：僅允許跳轉至 ${allowedDomain} 的連結</p>
-                        <p>當前嘗試跳轉至: <code>${targetUrl}</code></p>
-                    </div>
-                `;
-            }
-        };
-    </script><style>
-        #redirect-status {
-            margin: 20px;
-            padding: 0;
-        }
-        .jump-info {
-            padding: 15px;
-            border: 1px solid #4CAF50;
-            background: #f8fff8;
-        }
-        .error-info {
-            padding: 15px;
-            border: 1px solid #FF5722;
-            background: #fff8f8;
-        }
-    </style></head><body><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><p>等待跳轉驗證...</p><div id="redirect-status"></div></body></html>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+color: var(--dark);
+line-height: 1.6;
+padding: 0;
+margin: 0;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+}
+
+/* 頂部廣告容器 */
+.ad-top-container {
+width: 100%;
+background: #f1f1f1;
+border-bottom: 1px solid #ddd;
+overflow: hidden;
+text-align: center;
+}
+
+/* 底部廣告容器 */
+.ad-bottom-container {
+width: 100%;
+background: #f1f1f1;
+border-top: 1px solid #ddd;
+overflow: hidden;
+text-align: center;
+margin-top: auto; /* 確保始終在底部 */
+}
+
+/* 廣告內容共用樣式 */
+.ad-content {
+width: 100%;
+min-height: 90px;
+padding: 10px;
+margin: 0 auto;
+}
+
+/* 主內容容器 */
+#redirect-container {
+width: 100%;
+max-width: 800px;
+margin: 20px auto;
+padding: 20px;
+flex: 1; /* 佔滿中間空間 */
+}
+
+/* 狀態卡片樣式 */
+.status-card {
+background: white;
+border-radius: 12px;
+padding: 30px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+text-align: center;
+transition: var(--transition);
+animation: fadeIn 0.5s ease;
+}
+
+.status-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* 其他樣式保持不變... */
+
+@media (max-width: 768px) {
+.ad-content {
+padding: 5px;
+min-height: 70px;
+}
+
+#redirect-container {
+padding: 10px;
+}
+}
+</style></head><body><!-- 頂部廣告 --><div class="ad-top-container"><div class="ad-content"><div style="color:#555; font-size:14px; padding:5px;"><i class="fas fa-ad"></i>頂部贊助商廣告</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br></div></div><!-- 主內容 --><div id="redirect-container"><div class="status-card waiting"><div class="icon-spin"><i class="fas fa-sync-alt"></i></div><h2>安全驗證初始化</h2><p>正在檢查重定向連結安全性...</p><div class="progress-bar"><div class="progress"></div></div></div></div><!-- 底部廣告 --><div class="ad-bottom-container"><div class="ad-content"><div style="color:#555; font-size:14px; padding:5px;"><i class="fas fa-ad"></i>底部贊助商廣告</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div><script>
+// JavaScript 代碼保持不變...
+window.onload = function() {
+const allowedDomain = 'https://update.greasyfork.org.cn/';
+const targetContainerId = 'redirect-container';
+const hash = window.location.hash;
+
+if (hash === "#google_vignette") {
+showErrorMessage("連結已失效", "此連結已過期或不可用");
+return;
+}
+
+if (!hash || !(hash.startsWith("#http://") || hash.startsWith("#https://"))) {
+showWaitingMessage();
+startAutoRefresh();
+return;
+}
+
+const targetUrl = hash.substring(1);
+const finalUrl = targetUrl + window.location.search;
+
+if (targetUrl.startsWith(allowedDomain)) {
+document.getElementById(targetContainerId).innerHTML = createSuccessCard(finalUrl);
+
+const meta = document.createElement("meta");
+meta.httpEquiv = "refresh";
+meta.content = "0; url=" + finalUrl;
+document.head.appendChild(meta);
+} else {
+showErrorMessage("安全限制", `僅允許跳轉至 ${allowedDomain} 的連結`);
+}
+};
+
+function startAutoRefresh() {
+setTimeout(() => {
+location.reload();
+}, 2000);
+}
+
+function showWaitingMessage() {
+const container = document.getElementById('redirect-container');
+if (!container) return;
+
+container.innerHTML = `
+<div class="status-card waiting">
+<div class="icon-spin">
+<i class="fas fa-sync-alt"></i>
+</div>
+<h2>正在等待有效連結</h2>
+<p>系統正在自動檢查中，請稍候...</p>
+<div class="progress-bar">
+<div class="progress"></div>
+</div>
+<div class="tips">
+<i class="fas fa-lightbulb"></i> 提示：若長時間停留在此頁面，請重新進入安裝頁
+</div>
+</div>
+`;
+}
+
+function showErrorMessage(title, message) {
+const container = document.getElementById('redirect-container');
+if (!container) return;
+
+container.innerHTML = `
+<div class="status-card error">
+<div class="icon">
+<i class="fas fa-exclamation-triangle"></i>
+</div>
+<h2>${title}</h2>
+<p>${message}</p>
+<div class="actions">
+<button onclick="location.reload()" class="btn">
+<i class="fas fa-sync-alt"></i> 重新載入
+</button>
+<button onclick="history.back()" class="btn outline">
+<i class="fas fa-arrow-left"></i> 返回上一頁
+</button>
+</div>
+</div>
+`;
+}
+
+function createSuccessCard(url) {
+return `
+<div class="status-card success">
+<div class="icon">
+<i class="fas fa-check-circle"></i>
+</div>
+<h2>安全驗證通過</h2>
+<p>即將為您自動跳轉至安全連結</p>
+<div class="url-display">
+<i class="fas fa-link"></i>
+<span>${url}</span>
+</div>
+<div class="countdown">
+<span>1</span> 秒後自動跳轉...
+</div>
+<div class="actions">
+<a href="${url}" class="btn" rel="noopener noreferrer">
+<i class="fas fa-external-link-alt"></i> 立即前往
+</a>
+</div>
+</div>
+`;
+}
+</script></body></html>
