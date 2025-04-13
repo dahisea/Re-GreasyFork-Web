@@ -1,54 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
->
-
-
-<url>
- <loc>https://gfork.dahi.icu/zh-hans/help</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>https://gfork.dahi.icu/zh-hans/search</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>https://gfork.dahi.icu/zh-hans/scripts/libraries</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-
-
-<url>
- <loc>https://gfork.dahi.icu/page/applist</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>https://gfork.dahi.icu/page/tos</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
-<url>
- <loc>https://gfork.dahi.icu/</loc>
- <priority>0.3</priority>
- <lastmod>2025-03-17</lastmod>
- <changefreq>weekly</changefreq>
-</url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>https://greasyfork.org.cn/zh-hans</loc>
+      <lastmod>2025-03-01</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://greasyfork.org.cn/zh-hans/scripts</loc>
+      <lastmod>2025-03-01</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://greasyfork.org.cn/</loc>
+      <lastmod>2025-02-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://greasyfork.org.cn/en</loc>
+      <lastmod>2024-03-01</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://greasyfork.org.cn/zh-hans/help</loc>
+      <lastmod>2024-03-01</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://greasyfork.org.cn/page/tos</loc>
+      <lastmod>2023-12-10</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.5</priority>
+   </url>
+   <url>
+      <loc>https://greasyfork.org.cn/page/applist</loc>
+      <lastmod>2023-12-10</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.5</priority>
+   </url>
 </urlset>
