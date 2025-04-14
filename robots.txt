@@ -1,5 +1,5 @@
 User-agent: *
 Disallow: /*users*
 Disallow: /*moderator_actions*
-Disallow: /*scripts*
+Disallow: /*scripts/*
 Disallow: /*discussions*
