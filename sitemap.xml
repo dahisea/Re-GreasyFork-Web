@@ -7,7 +7,7 @@
       <priority>1.0</priority>
    </url>
    <url>
-      <loc>https://greasyfork.org.cn/zh-hans/scripts</loc>
+      <loc>https://greasyfork.org.cn/ja</loc>
       <lastmod>2025-03-01</lastmod>
       <changefreq>daily</changefreq>
       <priority>1.0</priority>
@@ -15,26 +15,14 @@
    <url>
       <loc>https://greasyfork.org.cn/</loc>
       <lastmod>2025-02-15</lastmod>
-      <changefreq>monthly</changefreq>
+      <changefreq>daily</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
       <loc>https://greasyfork.org.cn/en</loc>
       <lastmod>2024-03-01</lastmod>
-      <changefreq>yearly</changefreq>
+      <changefreq>daily</changefreq>
       <priority>0.9</priority>
-   </url>
-   <url>
-      <loc>https://greasyfork.org.cn/zh-hans/help</loc>
-      <lastmod>2024-03-01</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <url>
-      <loc>https://greasyfork.org.cn/page/tos</loc>
-      <lastmod>2023-12-10</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.5</priority>
    </url>
    <url>
       <loc>https://greasyfork.org.cn/page/applist</loc>
