@@ -1,5 +1,13 @@
-User-agent: *
+User-agent: Bingbot
 Disallow: /*users*
 Disallow: /*moderator_actions*
-Disallow: /*scripts/*
+Disallow: /*scripts*
 Disallow: /*discussions*
+Disallow: /*redirect*
+
+User-agent: MSNBot
+Disallow: /*users*
+Disallow: /*moderator_actions*
+Disallow: /*scripts*
+Disallow: /*discussions*
+Disallow: /*redirect*
