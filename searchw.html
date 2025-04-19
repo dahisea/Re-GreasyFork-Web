@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GFork - 加速访问与脚本下载 - 用户脚本 | GreasyFork镜像站</title>
+<meta name="description" content="GFORK专为用户解决访问慢、脚本下载难的问题（Mirrored官方の站） - 针对您所访问的网站添加功能或解决问题的用户脚本。">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="油猴脚本, JavaScript" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758644447684310" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/dahisea/Re-GFork-web@main/css/main.css" media="screen" />
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/dahisea/Re-GFork-web@main/css/mater.css" />
+<link href="https://cdn.jsdmirror.com/gh/dahisea/Re-GFork-web@main/css/ads.css" rel="stylesheet">
+<style>
+  .loading {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFGTVN7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header id="main-header">
+  <div class="width-constraint">
+    <div id="site-name">
+      <a href="/zh-CN"></a>
+      <div id="site-name-text"><a href="/"><h1>Greasy Fork</h1></a></div>
+    </div>
+    <div id="site-nav">
+      <div id="nav-user-info">
+        <span class="sign-in-link"><a rel="nofollow" href="/zh-hans/users/sign_in?return_to=/zh-hans/users/1442595" target="_blank">登录</a></span>
+      </div>
+      <nav>
+        <li class="scripts-index-link"><a href="/zh-hans/scripts">脚本</a></li>
+        <li class="help-link"><a href="/zh-hans/help">帮助</a></li>
+        <li class="with-submenu">
+          <a href="#" onclick="return false">更多</a>
+          <nav>
+            <li><a href="/zh-hans/search">高级搜索</a></li>
+            <li><a href="/zh-hans/scripts/libraries">库</a></li>
+          </nav>
+        </li>
+      </nav>
+    </div>
+    <div id="mobile-nav">
+      <div class="mobile-nav-opener">☰</div>
+      <nav class="collapsed">
+        <li class="scripts-index-link"><a href="/zh-hans/scripts">脚本</a></li>
+        <li class="help-link"><a href="/zh-hans/help">帮助</a></li>
+        <li><a href="/zh-hans/search">高级搜索</a></li>
+        <li><a href="/zh-hans/scripts/libraries">库</a></li>
+        <li class="multi-link-nav">
+          <span class="sign-in-link"><a rel="nofollow" href="/zh-hans/users/sign_in?return_to=/zh-hans/users/1442595" target="_blank">登录</a></span>
+        </li>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="width-constraint">
+  <div class="sidebarred">
+    <div class="sidebarred-main-content">
+      <div class="open-sidebar sidebar-collapsed">☰</div>
+      <p class="script-list-description">现在只显示 简体中文 的结果。<a rel="nofollow" href="/zh-hans/scripts?filter_locale=0&amp;q=itdog">显示所有语言的结果。</a></p>
+      
+      <ol id="browse-script-list" class="script-list">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <div id="script-results" class="loading">加载脚本中...</div>
+      </ol>
+      
+      <p class="script-list-description"><a href="/zh-hans/script_versions/new">发布你编写的脚本</a>(或 <a href="/zh-hans/help/writing-user-scripts">了解如何编写脚本</a>)</p>
+    </div>
+    
+    <div class="sidebar collapsed">
+      <div class="close-sidebar">
+        <div class="sidebar-title">搜索选项</div>
+        <div>☰</div>
+      </div>
+      <div id="script-list-option-groups" class="list-option-groups">
+        <form class="sidebar-search" id="search-form">
+          <input type="search" name="q" id="search-input" placeholder="搜索脚本">
+          <input class="search-submit" type="submit" value="🔎">
+        </form>
+        <div id="script-list-sort" class="list-option-group">脚本排序：
+          <ul>
+            <li class="list-option list-current">相关程度</li>
+            <li class="list-option"><a href="#" data-sort="daily_installs">日安装量</a></li>
+            <li class="list-option"><a href="#" data-sort="total_installs">总安装量</a></li>
+            <li class="list-option"><a href="#" data-sort="ratings">得分</a></li>
+            <li class="list-option"><a href="#" data-sort="created">创建日期</a></li>
+            <li class="list-option"><a href="#" data-sort="updated">更新日期</a></li>
+            <li class="list-option"><a href="#" data-sort="name">名称</a></li>
+          </ul>
+        </div>
+        <div id="script-list-filter" class="list-option-group">根据脚本生效的网站过滤：
+          <ul>
+            <li class="list-option list-current">全部</li>
+            <li class="list-option"><a href="#" data-site="baidu.com">baidu.com</a></li>
+            <li class="list-option"><a href="#" data-site="bilibili.com">bilibili.com</a></li>
+            <li class="list-option"><a href="#" data-site="*">(所有网站)</a></li>
+            <li class="list-option"><a href="#" data-site="youtube.com">youtube.com</a></li>
+            <li class="list-option"><a href="#" data-site="qq.com">qq.com</a></li>
+            <li class="list-option"><a href="#" data-site="chaoxing.com">chaoxing.com</a></li>
+            <li class="list-option"><a href="#" data-site="iqiyi.com">iqiyi.com</a></li>
+            <li class="list-option"><a href="#" data-site="youku.com">youku.com</a></li>
+            <li class="list-option"><a href="#" data-site="sohu.com">sohu.com</a></li>
+            <li class="list-option"><a href="#" data-site="zhihu.com">zhihu.com</a></li>
+            <li><a href="/zh-hans/scripts/by-site">更多...</a></li>
+          </ul>
+        </div>
+        <div id="script-language-filter" class="list-option-group">语言：
+          <ul>
+            <li class="list-option"><a href="#" data-language="all">所有</a></li>
+            <li class="list-option list-current">JavaScript</li>
+            <li class="list-option"><a href="#" data-language="css">CSS</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="font-size:11px;text-align:center">
+  <section class="text-content">
+    <br>
+    <form class="language-selector" action="/" method="GET">
+      <select class="language-selector-locale" id="locale-select" name="locale" aria-label="选择网站语言">
+        <option value="" disabled selected>选择语言</option>
+        <option data-language-url="/zh-hans" value="zh-CN">简体字</option>
+        <option data-language-url="/zh-hant" value="zh-TW">繁體字</option>
+        <option data-language-url="/ja" value="ja">日本語</option>
+        <option data-language-url="/en" value="en">ＥＮＧ</option>
+      </select>
+    </form>
+    <br>
+    <p>ICP : 萌ICP備20213149号｜ICP SYSTEM:<a href="https://icp.gov.moe/?keyword=20213149" target="_blank">https://icp.gov.moe</a></p>
+    <p>備案番号：萌公网備 11010502030125 号</p>
+    <br>
+    <a href="/page/tos">用戶協議</a><br>
+    <a href="https://github.com/greasyfork-proxy/GreasyFork-Mirror/issues">Github 反饋頁</a><br>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <img src="https://cdn.jsdmirror.com/gh/dahisea/w_file@main/assets/img/15p.svg" alt="分級" style="width:65px;height:65px;cursor:pointer">
+    <p>© 2020-2023 GFork.</p>
+    <p>序幕展開<span id="htmer_time"></span></p>
+    <div id="api-data" style="font-size:9px;text-align:left">少女祈祷中...</div>
+    <br>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <br>
+  </section>
+</footer>
+<script>
+// Get all URL parameters
+function getAllUrlParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const params = {};
+  for (const [key, value] of urlParams.entries()) {
+    params[key] = value;
+  }
+  return params;
+}
+
+// Build API URL with all current parameters
+function buildApiUrl() {
+  const baseUrl = 'https://api.greasyfork.org.cn/zh-CN/scripts.json';
+  const params = getAllUrlParams();
+  
+  // Remove parameters that shouldn't go to the API
+  delete params.locale;
+  
+  const queryString = Object.keys(params)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    .join('&');
+  
+  return queryString ? `${baseUrl}?${queryString}` : baseUrl;
+}
+
+// Fetch scripts from API
+async function fetchScripts() {
+  const apiUrl = buildApiUrl();
+  const loadingElement = document.getElementById('script-results');
+  
+  try {
+    loadingElement.innerHTML = '<div class="loading">加载脚本中...</div>';
+    
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error(`API请求失败: ${response.status}`);
+    }
+    
+    const scripts = await response.json();
+    renderScripts(scripts);
+    
+    // Update search input with current q parameter
+    const params = getAllUrlParams();
+    if (params.q) {
+      document.getElementById('search-input').value = params.q;
+    }
+  } catch (error) {
+    loadingElement.innerHTML = `<div class="error">加载脚本失败: ${error.message}</div>`;
+    console.error('Error fetching scripts:', error);
+  }
+}
+
+// Render script list
+function renderScripts(scripts) {
+  const container = document.getElementById('script-results');
+  if (!container) return;
+
+  if (!scripts || scripts.length === 0) {
+    container.innerHTML = '<div class="loading">没有找到匹配的脚本</div>';
+    return;
+  }
+
+  let html = '';
+  scripts.forEach(script => {
+    // Format dates
+    const createdDate = script.created_at ? new Date(script.created_at) : null;
+    const updatedDate = script.code_updated_at ? new Date(script.code_updated_at) : null;
+    
+    html += `
+      <li>
+        <article>
+          <h2>
+            <a class="script-link" href="${script.url || '#'}" target="_blank">${script.name || '未命名脚本'}</a>
+            <span class="badge badge-js" title="用户脚本">JS</span>
+            <span class="name-description-separator">-</span>
+            <span class="script-description description">${script.description || '暂无描述'}</span>
+          </h2>
+          <div class="script-meta-block">
+            <dl class="inline-script-stats">
+              <dt class="script-list-author"><span>作者</span></dt>
+              <dd class="script-list-author"><span><a href="${script.users?.[0]?.url || '#'}">${script.users?.[0]?.name || '未知作者'}</a></span></dd>
+              <dt class="script-list-daily-installs"><span>日安装量</span></dt>
+              <dd class="script-list-daily-installs"><span>${script.daily_installs || 0}</span></dd>
+              <dt class="script-list-total-installs"><span>总安装量</span></dt>
+              <dd class="script-list-total-installs"><span>${script.total_installs || 0}</span></dd>
+              <dt class="script-list-ratings"><span>评分</span></dt>
+              <dd class="script-list-ratings" data-rating-score="${script.fan_score || 0}">
+                <span>
+                  <span class="good-rating-count" title="评级为好评或已加入到收藏的人数。">${script.good_ratings || 0}</span>
+                  <span class="ok-rating-count" title="评级为一般的人数。">${script.ok_ratings || 0}</span>
+                  <span class="bad-rating-count" title="评级为差评的人数。">${script.bad_ratings || 0}</span>
+                </span>
+              </dd>
+              <dt class="script-list-created-date"><span>创建于</span></dt>
+              <dd class="script-list-created-date"><span>${createdDate ? createdDate.toLocaleDateString() : '未知'}</span></dd>
+              <dt class="script-list-updated-date"><span>更新于</span></dt>
+              <dd class="script-list-updated-date"><span>${updatedDate ? updatedDate.toLocaleDateString() : '未知'}</span></dd>
+              <a href="${script.code_url || '#'}" target="_blank">立即安装此脚本</a>
+            </dl>
+          </div>
+        </article>
+      </li>
+    `;
+  });
+  
+  container.outerHTML = html;
+}
+
+// Handle search form submission
+document.getElementById('search-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const searchInput = document.getElementById('search-input');
+  const query = searchInput.value;
+  
+  // Update URL with new search parameter
+  const url = new URL(window.location);
+  if (query) {
+    url.searchParams.set('q', query);
+  } else {
+    url.searchParams.delete('q');
+  }
+  
+  // Preserve all other parameters
+  window.history.pushState({}, '', url);
+  
+  // Refresh the data
+  fetchScripts();
+});
+
+// Handle back/forward navigation
+window.addEventListener('popstate', function() {
+  fetchScripts();
+});
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', function() {
+  // Set up all filter/sort links to preserve parameters
+  document.querySelectorAll('[data-sort], [data-site], [data-language]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const url = new URL(window.location);
+      const params = getAllUrlParams();
+      
+      if (this.dataset.sort) {
+        url.searchParams.set('sort', this.dataset.sort);
+      }
+      if (this.dataset.site) {
+        url.searchParams.set('site', this.dataset.site);
+      }
+      if (this.dataset.language) {
+        url.searchParams.set('language', this.dataset.language);
+      }
+      
+      window.history.pushState({}, '', url);
+      fetchScripts();
+    });
+  });
+  
+  // Initial data load
+  fetchScripts();
+});
+</script>
+
+</body>
+</html>
