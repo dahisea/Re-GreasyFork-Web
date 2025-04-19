@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>GFork - 加速访问与脚本下载 - 用户脚本 | GreasyFork镜像站</title>
-<meta name="description" content="GFORK专为用户解决访问慢、脚本下载难的问题（Mirrored官方の站） - 针对您所访问的网站添加功能或解决问题的用户脚本。">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="keywords" content="油猴脚本, JavaScript" />
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758644447684310" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/dahisea/Re-GFork-web@main/css/main.css" media="screen" />
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/dahisea/Re-GFork-web@main/css/mater.css" />
@@ -15,6 +12,27 @@
     padding: 20px;
     font-style: italic;
     color: #666;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+  flex-wrap: wrap;
+  }
+  .pagination a {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  .pagination a:hover {
+    background: #eee;
+  }
+  .pagination .current {
+    background: #0078d7;
+    color: white;
+    border-color: #0078d7;
   }
 </style>
 </head>
@@ -28,11 +46,7 @@
       <div id="site-name-text"><a href="/"><h1>Greasy Fork</h1></a></div>
     </div>
     <div id="site-nav">
-      <div id="nav-user-info">
-        <span class="sign-in-link"><a rel="nofollow" href="/zh-hans/users/sign_in?return_to=/zh-hans/users/1442595" target="_blank">登录</a></span>
-      </div>
       <nav>
-        <li class="scripts-index-link"><a href="/zh-hans/scripts">脚本</a></li>
         <li class="help-link"><a href="/zh-hans/help">帮助</a></li>
         <li class="with-submenu">
           <a href="#" onclick="return false">更多</a>
@@ -46,12 +60,10 @@
     <div id="mobile-nav">
       <div class="mobile-nav-opener">☰</div>
       <nav class="collapsed">
-        <li class="scripts-index-link"><a href="/zh-hans/scripts">脚本</a></li>
         <li class="help-link"><a href="/zh-hans/help">帮助</a></li>
         <li><a href="/zh-hans/search">高级搜索</a></li>
         <li><a href="/zh-hans/scripts/libraries">库</a></li>
         <li class="multi-link-nav">
-          <span class="sign-in-link"><a rel="nofollow" href="/zh-hans/users/sign_in?return_to=/zh-hans/users/1442595" target="_blank">登录</a></span>
         </li>
       </nav>
     </div>
@@ -62,7 +74,15 @@
   <div class="sidebarred">
     <div class="sidebarred-main-content">
       <div class="open-sidebar sidebar-collapsed">☰</div>
-      <p class="script-list-description">现在只显示 简体中文 的结果。<a rel="nofollow" href="/zh-hans/scripts?filter_locale=0&amp;q=itdog">显示所有语言的结果。</a></p>
+      <p class="script-list-description">现在只显示 简体中文 的结果。<a href="#" onclick="addFilterLocale()">显示所有语言的内容</a>
+
+<script>
+function addFilterLocale() {
+  const url = new URL(window.location.href);
+  url.searchParams.set('filter_locale', '0'); // 添加或替换参数
+  window.location.href = url.toString();
+}
+</script></p>
       
       <ol id="browse-script-list" class="script-list">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4095096984" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -123,6 +143,7 @@
 </div>
 
 <footer style="font-size:11px;text-align:center">
+  <div id="pagination" class="pagination"></div>
   <section class="text-content">
     <br>
     <form class="language-selector" action="/" method="GET">
@@ -153,168 +174,7 @@
   </section>
 </footer>
 <script>
-// Get all URL parameters
-function getAllUrlParams() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const params = {};
-  for (const [key, value] of urlParams.entries()) {
-    params[key] = value;
-  }
-  return params;
-}
-
-// Build API URL with all current parameters
-function buildApiUrl() {
-  const baseUrl = 'https://api.greasyfork.org.cn/zh-CN/scripts.json';
-  const params = getAllUrlParams();
-  
-  // Remove parameters that shouldn't go to the API
-  delete params.locale;
-  
-  const queryString = Object.keys(params)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-    .join('&');
-  
-  return queryString ? `${baseUrl}?${queryString}` : baseUrl;
-}
-
-// Fetch scripts from API
-async function fetchScripts() {
-  const apiUrl = buildApiUrl();
-  const loadingElement = document.getElementById('script-results');
-  
-  try {
-    loadingElement.innerHTML = '<div class="loading">加载脚本中...</div>';
-    
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-      throw new Error(`API请求失败: ${response.status}`);
-    }
-    
-    const scripts = await response.json();
-    renderScripts(scripts);
-    
-    // Update search input with current q parameter
-    const params = getAllUrlParams();
-    if (params.q) {
-      document.getElementById('search-input').value = params.q;
-    }
-  } catch (error) {
-    loadingElement.innerHTML = `<div class="error">加载脚本失败: ${error.message}</div>`;
-    console.error('Error fetching scripts:', error);
-  }
-}
-
-// Render script list
-function renderScripts(scripts) {
-  const container = document.getElementById('script-results');
-  if (!container) return;
-
-  if (!scripts || scripts.length === 0) {
-    container.innerHTML = '<div class="loading">没有找到匹配的脚本</div>';
-    return;
-  }
-
-  let html = '';
-  scripts.forEach(script => {
-    // Format dates
-    const createdDate = script.created_at ? new Date(script.created_at) : null;
-    const updatedDate = script.code_updated_at ? new Date(script.code_updated_at) : null;
-    
-    html += `
-      <li>
-        <article>
-          <h2>
-            <a class="script-link" href="${script.url || '#'}" target="_blank">${script.name || '未命名脚本'}</a>
-            <span class="badge badge-js" title="用户脚本">JS</span>
-            <span class="name-description-separator">-</span>
-            <span class="script-description description">${script.description || '暂无描述'}</span>
-          </h2>
-          <div class="script-meta-block">
-            <dl class="inline-script-stats">
-              <dt class="script-list-author"><span>作者</span></dt>
-              <dd class="script-list-author"><span><a href="${script.users?.[0]?.url || '#'}">${script.users?.[0]?.name || '未知作者'}</a></span></dd>
-              <dt class="script-list-daily-installs"><span>日安装量</span></dt>
-              <dd class="script-list-daily-installs"><span>${script.daily_installs || 0}</span></dd>
-              <dt class="script-list-total-installs"><span>总安装量</span></dt>
-              <dd class="script-list-total-installs"><span>${script.total_installs || 0}</span></dd>
-              <dt class="script-list-ratings"><span>评分</span></dt>
-              <dd class="script-list-ratings" data-rating-score="${script.fan_score || 0}">
-                <span>
-                  <span class="good-rating-count" title="评级为好评或已加入到收藏的人数。">${script.good_ratings || 0}</span>
-                  <span class="ok-rating-count" title="评级为一般的人数。">${script.ok_ratings || 0}</span>
-                  <span class="bad-rating-count" title="评级为差评的人数。">${script.bad_ratings || 0}</span>
-                </span>
-              </dd>
-              <dt class="script-list-created-date"><span>创建于</span></dt>
-              <dd class="script-list-created-date"><span>${createdDate ? createdDate.toLocaleDateString() : '未知'}</span></dd>
-              <dt class="script-list-updated-date"><span>更新于</span></dt>
-              <dd class="script-list-updated-date"><span>${updatedDate ? updatedDate.toLocaleDateString() : '未知'}</span></dd>
-              <a href="${script.code_url || '#'}" target="_blank">立即安装此脚本</a>
-            </dl>
-          </div>
-        </article>
-      </li>
-    `;
-  });
-  
-  container.outerHTML = html;
-}
-
-// Handle search form submission
-document.getElementById('search-form')?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const searchInput = document.getElementById('search-input');
-  const query = searchInput.value;
-  
-  // Update URL with new search parameter
-  const url = new URL(window.location);
-  if (query) {
-    url.searchParams.set('q', query);
-  } else {
-    url.searchParams.delete('q');
-  }
-  
-  // Preserve all other parameters
-  window.history.pushState({}, '', url);
-  
-  // Refresh the data
-  fetchScripts();
-});
-
-// Handle back/forward navigation
-window.addEventListener('popstate', function() {
-  fetchScripts();
-});
-
-// Initialize page
-document.addEventListener('DOMContentLoaded', function() {
-  // Set up all filter/sort links to preserve parameters
-  document.querySelectorAll('[data-sort], [data-site], [data-language]').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const url = new URL(window.location);
-      const params = getAllUrlParams();
-      
-      if (this.dataset.sort) {
-        url.searchParams.set('sort', this.dataset.sort);
-      }
-      if (this.dataset.site) {
-        url.searchParams.set('site', this.dataset.site);
-      }
-      if (this.dataset.language) {
-        url.searchParams.set('language', this.dataset.language);
-      }
-      
-      window.history.pushState({}, '', url);
-      fetchScripts();
-    });
-  });
-  
-  // Initial data load
-  fetchScripts();
-});
+!function(){function e(){const e=new URLSearchParams(window.location.search);const t={};for(const[n,r]of e.entries())t[n]=r;return t}function t(){const t="https://api.greasyfork.org.cn/zh-CN/scripts.json";const n=e();delete n.locale;const r=Object.keys(n).map(e=>`${encodeURIComponent(e)}=${encodeURIComponent(n[e])}`).join("&");return r?`${t}?${r}`:t}function n(){const n=t();const r=document.getElementById("script-results");try{r.innerHTML='<div class="loading">加载脚本中...</div>',fetch(n).then(e=>{if(!e.ok)throw new Error(`API请求失败: ${e.status}`);return e.json()}).then(e=>{o(e),a()}).catch(e=>{r.innerHTML=`<div class="error">加载脚本失败: ${e.message}</div>`,console.error("Error fetching scripts:",e)})}catch(e){r.innerHTML=`<div class="error">加载脚本失败: ${e.message}</div>`,console.error("Error fetching scripts:",e)}}function o(e){const t=document.getElementById("script-results");if(!t)return;if(!e||0===e.length)return t.innerHTML='<div class="loading">没有找到匹配的脚本</div>',void console.log("No scripts found");let n="";e.forEach(e=>{const o=e.created_at?new Date(e.created_at):null,r=e.code_updated_at?new Date(e.code_updated_at):null;n+=`<li><article><h2><a class="script-link" href="${e.url||"#"}" target="_blank">${e.name||"未命名脚本"}</a><span class="badge badge-js" title="用户脚本">JS</span><span class="name-description-separator">-</span><span class="script-description description">${e.description||"暂无描述"}</span></h2><div class="script-meta-block"><dl class="inline-script-stats"><dt class="script-list-author"><span>作者</span></dt><dd class="script-list-author"><span><a href="${e.users?.[0]?.url||"#"}">${e.users?.[0]?.name||"未知作者"}</a></span></dd><dt class="script-list-daily-installs"><span>日安装量</span></dt><dd class="script-list-daily-installs"><span>${e.daily_installs||0}</span></dd><dt class="script-list-total-installs"><span>总安装量</span></dt><dd class="script-list-total-installs"><span>${e.total_installs||0}</span></dd><dt class="script-list-ratings"><span>评分</span></dt><dd class="script-list-ratings" data-rating-score="${e.fan_score||0}"><span><span class="good-rating-count" title="评级为好评或已加入到收藏的人数。">${e.good_ratings||0}</span><span class="ok-rating-count" title="评级为一般的人数。">${e.ok_ratings||0}</span><span class="bad-rating-count" title="评级为差评的人数。">${e.bad_ratings||0}</span></span></dd><dt class="script-list-created-date"><span>创建于</span></dt><dd class="script-list-created-date"><span>${o?o.toLocaleDateString():"未知"}</span></dd><dt class="script-list-updated-date"><span>更新于</span></dt><dd class="script-list-updated-date"><span>${r?r.toLocaleDateString():"未知"}</span></dd><a href="${e.code_url||"#"}" target="_blank">立即安装此脚本</a></dl></div></article></li>`}),t.outerHTML=n}function r(e){e.preventDefault();const t=document.getElementById("search-input"),n=t.value,o=new URL(window.location);n?o.searchParams.set("q",n):o.searchParams.delete("q"),window.history.pushState({},"",o),n()}function a(){const t=new URLSearchParams(window.location.search);const n=parseInt(t.get("page")||"1");const r=Math.max(n-1,1);const a=n+1;const c=document.getElementById("pagination");if(c){let e="";e+=`<a href="?${new URLSearchParams({...Object.fromEntries(t.entries()),page:r})}" ${1===n?'style="visibility:hidden"':""}>上一页</a>`;e+=`<span class="current">${n}</span>`;e+=`<a href="?${new URLSearchParams({...Object.fromEntries(t.entries()),page:a})}">下一页</a>`;c.innerHTML=e}}document.getElementById("search-form")?.addEventListener("submit",r),window.addEventListener("popstate",function(){n()}),document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("[data-sort], [data-site], [data-language]").forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();const t=new URL(window.location);this.dataset.sort&&t.searchParams.set("sort",this.dataset.sort),this.dataset.site&&t.searchParams.set("site",this.dataset.site),this.dataset.language&&t.searchParams.set("language",this.dataset.language),window.history.pushState({},"",t),n()})}),n()})}();
 </script>
 
 </body>
