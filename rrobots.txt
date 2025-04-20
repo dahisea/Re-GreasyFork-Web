@@ -1,11 +1,6 @@
-# 仅 Bing 受限（关键词匹配）
-User-agent: Bingbot
+User-agent: *
 Disallow: /*users*
 Disallow: /*moderator_actions*
 Disallow: /*scripts*
 Disallow: /*discussions*
 Disallow: /*redirect*
-
-# 其他所有搜索引擎和爬虫不受限制（默认允许）
-User-agent: *
-Allow: /
