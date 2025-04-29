@@ -19,7 +19,7 @@ function replaceUrl() {
         outputUrl = outputUrl.replace('https://sleazyfork.org/', 'https://yx.dahi.edu.eu.org/');
     }
     if (inputUrl.includes('https://update.sleazyfork.org/')) {
-        outputUrl = outputUrl.replace('https://updatesleazyfork.org/', 'https://yxd.dahi.edu.eu.org/');
+        outputUrl = outputUrl.replace('https://update.sleazyfork.org/', 'https://yxd.dahi.edu.eu.org/');
     }
     if (inputUrl.includes('https://greasyfork.org/')) {
         outputUrl = outputUrl.replace('https://greasyfork.org/', 'https://yx.dahi.edu.eu.org/');
