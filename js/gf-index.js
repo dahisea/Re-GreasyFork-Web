@@ -3,7 +3,7 @@ function replaceUrl() {
     document.getElementById('errorMessage').textContent = '';
     document.getElementById('outputUrl').textContent = '';
 
-    if (!inputUrl.includes('https://update.greasyfork.org/') && !inputUrl.includes('https://greasyfork.org/')) {
+    if (!inputUrl.includes('greasyfork.org/') && !inputUrl.includes('sleazyfork.org/')) {
         document.getElementById('errorMessage').textContent = '链接不包含 Greasy Fork 脚本链接，本站仅对 Greasy Fork 的脚本提供资源加速服务！';
         return;
     }
@@ -12,9 +12,19 @@ function replaceUrl() {
     if (inputUrl.includes('https://update.greasyfork.org/')) {
         outputUrl = outputUrl.replace('https://update.greasyfork.org/', 'https://yxd.dahi.edu.eu.org/');
     }
+    if (inputUrl.includes('https://api.greasyfork.org/')) {
+        outputUrl = outputUrl.replace('https://api.greasyfork.org/', 'https://yxd.dahi.edu.eu.org/');
+    }
+    if (inputUrl.includes('https://sleazyfork.org/')) {
+        outputUrl = outputUrl.replace('https://sleazyfork.org/', 'https://yx.dahi.edu.eu.org/');
+    }
+    if (inputUrl.includes('https://update.sleazyfork.org/')) {
+        outputUrl = outputUrl.replace('https://updatesleazyfork.org/', 'https://yxd.dahi.edu.eu.org/');
+    }
     if (inputUrl.includes('https://greasyfork.org/')) {
         outputUrl = outputUrl.replace('https://greasyfork.org/', 'https://yx.dahi.edu.eu.org/');
     }
+    
     
     document.getElementById('outputUrl').textContent = outputUrl;
 }
