@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://home.greasyfork.org.cn/zh-hans</loc>
+        <lastmod>2025-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>  <!-- 最高優先級（主頁或主要語言） -->
+    </url>
+    <url>
+        <loc>https://home.greasyfork.org.cn/ja</loc>
+        <lastmod>2025-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>  <!-- 次要語言，稍低於主語言 -->
+    </url>
+    <url>
+        <loc>https://home.greasyfork.org.cn/en</loc>
+        <lastmod>2025-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>  <!-- 英文頁面，權重再低一些 -->
+    </url>
+    <url>
+        <loc>https://home.greasyfork.org.cn/page/applist</loc>
+        <lastmod>2025-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>  <!-- 功能性頁面，最低優先級 -->
+    </url>
+    <url>
+        <loc>https://home.greasyfork.org.cn/page/applist</loc>
+        <lastmod>2025-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>  <!-- 功能性頁面，最低優先級 -->
+    </url>
+    <url>
+        <loc>https://home.greasyfork.org.cn/page/installing-user-scripts</loc>
+        <lastmod>2025-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>  <!-- 功能性頁面，最低優先級 -->
+    </url>
+    <url>
+        <loc>https://home.greasyfork.org.cn/help</loc>
+        <lastmod>2025-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>  <!-- 功能性頁面，最低優先級 -->
+    </url>
+    <url>
+        <loc>https://home.greasyfork.org.cn/search</loc>
+        <lastmod>2025-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>  <!-- 功能性頁面，最低優先級 -->
+    </url>
+</urlset>
