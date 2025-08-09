@@ -37,25 +37,110 @@
             return;
         }
         
+        console.log("Fetching from URL:", apiUrl); // Debug log
+        
         try {
             resultsContainer.innerHTML = '<div class="loading">載入的結果將在此展示...</div>';
-            fetch(apiUrl)
+            
+            // Try different fetch configurations to handle CORS
+            const fetchOptions = {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                // Add CORS mode - try 'cors' first, fallback to 'no-cors' if needed
+                mode: 'cors'
+            };
+            
+            fetch(apiUrl, fetchOptions)
                 .then(response => {
-                    if (!response.ok) throw new Error(`API錯誤: ${response.status}`);
+                    console.log("Response status:", response.status);
+                    console.log("Response headers:", response.headers);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    
+                    // Check if response is JSON
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        throw new Error('Response is not JSON format');
+                    }
+                    
                     return response.json();
                 })
                 .then(data => {
+                    console.log("API Response:", data); // Debug log
                     renderResults(data);
                     updatePagination();
                 })
                 .catch(error => {
-                    resultsContainer.innerHTML = `<div class="error">載入錯誤: ${error.message}</div>`;
-                    console.error("Error fetching scripts:", error);
+                    console.error("Fetch error details:", error);
+                    
+                    // Provide more specific error messages
+                    let errorMessage = "載入錯誤: ";
+                    if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                        errorMessage += "網絡連接失敗或CORS錯誤。請檢查網絡連接。";
+                    } else if (error.message.includes('CORS')) {
+                        errorMessage += "跨域請求被阻止。API服務器需要設置CORS頭部。";
+                    } else if (error.message.includes('JSON')) {
+                        errorMessage += "API返回的數據格式無效。";
+                    } else {
+                        errorMessage += error.message;
+                    }
+                    
+                    resultsContainer.innerHTML = `<div class="error">${errorMessage}</div>`;
+                    
+                    // Try alternative approach with no-cors mode
+                    tryNoCorsRequest(apiUrl, resultsContainer);
                 });
         } catch (error) {
+            console.error("Unexpected error:", error);
             resultsContainer.innerHTML = `<div class="error">載入錯誤: ${error.message}</div>`;
-            console.error("Error fetching scripts:", error);
         }
+    }
+    
+    function tryNoCorsRequest(apiUrl, resultsContainer) {
+        console.log("Trying no-cors mode as fallback...");
+        
+        fetch(apiUrl, { 
+            method: 'GET',
+            mode: 'no-cors' 
+        })
+        .then(response => {
+            // With no-cors mode, we can't read the response body
+            // This is just to test if the request goes through
+            console.log("No-cors request completed, but cannot read response");
+            resultsContainer.innerHTML = `
+                <div class="error">
+                    <p>CORS錯誤：無法直接訪問API。</p>
+                    <p>可能的解決方案：</p>
+                    <ul>
+                        <li>聯系API提供方添加CORS支持</li>
+                        <li>使用代理服務器</li>
+                        <li>在服務器端調用API</li>
+                    </ul>
+                    <p>API URL: ${apiUrl}</p>
+                </div>
+            `;
+        })
+        .catch(error => {
+            console.error("No-cors fallback also failed:", error);
+            resultsContainer.innerHTML = `
+                <div class="error">
+                    <p>API請求完全失敗。</p>
+                    <p>錯誤信息: ${error.message}</p>
+                    <p>API URL: ${apiUrl}</p>
+                    <p>請檢查：</p>
+                    <ul>
+                        <li>網絡連接是否正常</li>
+                        <li>API URL是否正確</li>
+                        <li>API服務器是否運行正常</li>
+                    </ul>
+                </div>
+            `;
+        });
     }
 
     function renderResults(data) {
@@ -193,6 +278,43 @@
         }
     }
 
+    function testApiConnection() {
+        const baseUrl = "https://api-edge-sakiko-dispatch-network-aws-cdn.dahi.edu.eu.org/efa18acc-c5b8-480d-bf3f-ee419de809e3";
+        
+        console.log("Testing API connection...");
+        console.log("Base URL:", baseUrl);
+        
+        // Test simple GET request
+        fetch(baseUrl, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            console.log("API Test - Status:", response.status);
+            console.log("API Test - Status Text:", response.statusText);
+            console.log("API Test - Headers:", [...response.headers.entries()]);
+            
+            return response.text(); // Try text first to see raw response
+        })
+        .then(data => {
+            console.log("API Test - Raw Response:", data);
+            
+            // Try to parse as JSON
+            try {
+                const jsonData = JSON.parse(data);
+                console.log("API Test - Parsed JSON:", jsonData);
+            } catch (e) {
+                console.log("API Test - Response is not valid JSON");
+            }
+        })
+        .catch(error => {
+            console.error("API Test - Error:", error);
+            console.error("API Test - Error type:", error.constructor.name);
+        });
+    }
+
     function initializePage() {
         const params = getHashParams();
         const query = params.q || "";
@@ -271,11 +393,20 @@
         document.addEventListener('DOMContentLoaded', function() {
             initializeFormHandlers();
             initializePage();
+            
+            // Test API connection first
+            testApiConnection();
+            
             loadResults();
         });
     } else {
         initializeFormHandlers();
         initializePage();
+        
+        // Test API connection first
+        testApiConnection();
+        
         loadResults();
     }
-}();</script><style>.loading{text-align:center;color:#666}</style><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-KZFGTVN7');</script></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFGTVN7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><header id="main-header"><div class="width-constraint"><div id="site-name"><div id="site-name-text"><a href="/zh-hans"><h1>GFork</h1></a></div></div><div id="site-nav"><nav><li class="help-link"><a href="/zh-hans/help">帮助</a></li><li class="with-submenu"><a href="#" onclick="return false">更多</a><nav><li><a href="/zh-hans/search">高级搜索</a></li></nav></li></nav></div><div id="mobile-nav"><div class="mobile-nav-opener">☰</div><nav class="collapsed"><li class="help-link"><a href="/zh-hans/help">帮助</a></li><li><a href="/zh-hans/search">高级搜索</a></li></nav></div></div></header><div class="open-sidebar sidebar-collapsed">☰</div><div class="width-constraint"><div class="sidebarred"><div class="sidebarred-main-content"><ol id="browse-script-list" class="script-list"><div id="script-results" class="loading">加载脚本中...</div></ol></div><div class="sidebar collapsed"><div class="close-sidebar"><div class="sidebar-title">搜索选项</div><div>☰</div></div><div id="script-list-option-groups" class="list-option-groups"><form class="sidebar-search"><input type="search" name="q" placeholder="搜索脚本"><input class="search-submit" type="submit" value="搜索关键词"></form><div id="script-list-sort" class="list-option-group">脚本排序：<ul id="sort-options-list"></ul></div></div><br><ins class="adsbygoogle" style="display:inline-block;width:190px;height:570px" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4497590737"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><br></div></div></div><footer style="font-size:11px;text-align:center"><div id="pagination" class="pagination"></div></footer><ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-3758644447684310" data-ad-slot="3934604756"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></body></html>
+}();
+   </script><style>.loading{text-align:center;color:#666}</style><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-KZFGTVN7');</script></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFGTVN7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><header id="main-header"><div class="width-constraint"><div id="site-name"><div id="site-name-text"><a href="/zh-hans"><h1>GFork</h1></a></div></div><div id="site-nav"><nav><li class="help-link"><a href="/zh-hans/help">帮助</a></li><li class="with-submenu"><a href="#" onclick="return false">更多</a><nav><li><a href="/zh-hans/search">高级搜索</a></li></nav></li></nav></div><div id="mobile-nav"><div class="mobile-nav-opener">☰</div><nav class="collapsed"><li class="help-link"><a href="/zh-hans/help">帮助</a></li><li><a href="/zh-hans/search">高级搜索</a></li></nav></div></div></header><div class="open-sidebar sidebar-collapsed">☰</div><div class="width-constraint"><div class="sidebarred"><div class="sidebarred-main-content"><ol id="browse-script-list" class="script-list"><div id="script-results" class="loading">加载脚本中...</div></ol></div><div class="sidebar collapsed"><div class="close-sidebar"><div class="sidebar-title">搜索选项</div><div>☰</div></div><div id="script-list-option-groups" class="list-option-groups"><form class="sidebar-search"><input type="search" name="q" placeholder="搜索脚本"><input class="search-submit" type="submit" value="搜索关键词"></form><div id="script-list-sort" class="list-option-group">脚本排序：<ul id="sort-options-list"></ul></div></div><br><ins class="adsbygoogle" style="display:inline-block;width:190px;height:570px" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4497590737"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><br></div></div></div><footer style="font-size:11px;text-align:center"><div id="pagination" class="pagination"></div></footer><ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-3758644447684310" data-ad-slot="3934604756"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></body></html>
