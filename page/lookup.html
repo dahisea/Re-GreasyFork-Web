@@ -32,6 +32,11 @@
         const apiUrl = buildApiUrl();
         const resultsContainer = document.getElementById("script-results");
         
+        if (!resultsContainer) {
+            console.error("Results container not found");
+            return;
+        }
+        
         try {
             resultsContainer.innerHTML = '<div class="loading">載入的結果將在此展示...</div>';
             fetch(apiUrl)
@@ -110,7 +115,12 @@
     function handleSearchSubmit(event) {
         event.preventDefault();
         const searchInput = document.getElementById("search-submit");
-        const query = searchInput.value;
+        if (!searchInput) {
+            console.error("Search input not found");
+            return;
+        }
+        
+        const query = searchInput.value.trim();
         const url = new URL(window.location);
         url.hash = query ? `#?q=${encodeURIComponent(query)}` : "#";
         window.history.pushState({}, "", url);
@@ -118,33 +128,77 @@
     }
 
     function updatePagination() {
-        const params = new URLSearchParams(window.location.hash.substring(2));
+        const hashParams = window.location.hash.substring(2);
+        if (!hashParams) return;
+        
+        const params = new URLSearchParams(hashParams);
         const currentPage = parseInt(params.get("page") || "1");
         const prevPage = Math.max(currentPage - 1, 1);
         const nextPage = currentPage + 1;
         const paginationContainer = document.getElementById("pagination");
         
         if (paginationContainer) {
+            const prevParams = new URLSearchParams(params);
+            const nextParams = new URLSearchParams(params);
+            
+            prevParams.set("page", prevPage.toString());
+            nextParams.set("page", nextPage.toString());
+            
             let html = "";
-            html += `<a href="#?${new URLSearchParams({...Object.fromEntries(params.entries()), page: prevPage})}" ${currentPage === 1 ? 'style="visibility:hidden"' : ""}>上一页</a>`;
+            html += `<a href="#?${prevParams.toString()}" ${currentPage === 1 ? 'style="visibility:hidden"' : ""}>上一页</a>`;
             html += `<span class="current">${currentPage}</span>`;
-            html += `<a href="#?${new URLSearchParams({...Object.fromEntries(params.entries()), page: nextPage})}">下一页</a>`;
+            html += `<a href="#?${nextParams.toString()}">下一页</a>`;
             paginationContainer.innerHTML = html;
         }
     }
 
-    // Initialize event listeners
-    document.getElementById("search-form")?.addEventListener("submit", handleSearchSubmit);
-    window.addEventListener("popstate", function() {
-        loadResults();
-    });
+    function initializeFormHandlers() {
+        // Handle main search form
+        const searchForm = document.getElementById("search-form");
+        if (searchForm) {
+            searchForm.addEventListener("submit", handleSearchSubmit);
+        }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const params = new URLSearchParams(window.location.hash.substring(2));
-        const query = params.get("q") || "";
-        const sort = params.get("sort") || "";
-        const filterLocale = params.get("filter_locale") || "0";
-        const site = params.get("site") || "";
+        // Handle sidebar search form
+        const sidebarSearch = document.querySelector(".sidebar-search");
+        if (sidebarSearch) {
+            sidebarSearch.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const searchInput = sidebarSearch.querySelector('input[name="q"]');
+                if (!searchInput) return;
+                
+                const params = getHashParams();
+                const searchParams = {
+                    q: searchInput.value.trim(),
+                    sort: params.sort || "",
+                    filter_locale: params.filter_locale || "0"
+                };
+                
+                if (params.site) {
+                    searchParams.site = params.site;
+                }
+                
+                // Remove empty parameters
+                Object.keys(searchParams).forEach(key => {
+                    if (!searchParams[key]) {
+                        delete searchParams[key];
+                    }
+                });
+                
+                const url = new URL(window.location.href);
+                url.hash = `#?${new URLSearchParams(searchParams).toString()}`;
+                window.history.pushState({}, "", url);
+                loadResults();
+            });
+        }
+    }
+
+    function initializePage() {
+        const params = getHashParams();
+        const query = params.q || "";
+        const sort = params.sort || "";
+        const filterLocale = params.filter_locale || "0";
+        const site = params.site || "";
 
         // Initialize search input
         const searchInput = document.querySelector('.sidebar-search input[name="q"]');
@@ -183,43 +237,45 @@
                 if (site) {
                     queryParams.site = site;
                 }
-                if (!queryParams.q) {
-                    delete queryParams.q;
-                }
                 
-                link.href = `/lookup#?${new URLSearchParams(queryParams).toString()}`;
-                link.target = "_blank";
+                // Remove empty parameters
+                Object.keys(queryParams).forEach(key => {
+                    if (!queryParams[key]) {
+                        delete queryParams[key];
+                    }
+                });
+                
+                link.href = `#?${new URLSearchParams(queryParams).toString()}`;
                 link.textContent = option.text;
+                
+                // Add click handler to update current page
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.history.pushState({}, "", this.href);
+                    loadResults();
+                });
+                
                 listItem.appendChild(link);
                 sortOptionsList.appendChild(listItem);
             });
         }
+    }
 
-        // Initialize sidebar search
-        const sidebarSearch = document.querySelector(".sidebar-search");
-        if (sidebarSearch) {
-            sidebarSearch.addEventListener("submit", function(event) {
-                event.preventDefault();
-                const searchParams = {
-                    q: searchInput.value.trim(),
-                    sort: sort,
-                    filter_locale: filterLocale
-                };
-                
-                if (site) {
-                    searchParams.site = site;
-                }
-                if (!searchParams.q) {
-                    delete searchParams.q;
-                }
-                
-                const url = new URL(window.location.href);
-                url.search = new URLSearchParams(searchParams).toString();
-                window.open(url.toString(), "_blank");
-            });
-        }
+    // Initialize event listeners
+    window.addEventListener("popstate", function() {
+        loadResults();
     });
 
-    // Initial load
-    loadResults();
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeFormHandlers();
+            initializePage();
+            loadResults();
+        });
+    } else {
+        initializeFormHandlers();
+        initializePage();
+        loadResults();
+    }
 }();</script><style>.loading{text-align:center;color:#666}</style><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-KZFGTVN7');</script></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFGTVN7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><header id="main-header"><div class="width-constraint"><div id="site-name"><div id="site-name-text"><a href="/zh-hans"><h1>GFork</h1></a></div></div><div id="site-nav"><nav><li class="help-link"><a href="/zh-hans/help">帮助</a></li><li class="with-submenu"><a href="#" onclick="return false">更多</a><nav><li><a href="/zh-hans/search">高级搜索</a></li></nav></li></nav></div><div id="mobile-nav"><div class="mobile-nav-opener">☰</div><nav class="collapsed"><li class="help-link"><a href="/zh-hans/help">帮助</a></li><li><a href="/zh-hans/search">高级搜索</a></li></nav></div></div></header><div class="open-sidebar sidebar-collapsed">☰</div><div class="width-constraint"><div class="sidebarred"><div class="sidebarred-main-content"><ol id="browse-script-list" class="script-list"><div id="script-results" class="loading">加载脚本中...</div></ol></div><div class="sidebar collapsed"><div class="close-sidebar"><div class="sidebar-title">搜索选项</div><div>☰</div></div><div id="script-list-option-groups" class="list-option-groups"><form class="sidebar-search"><input type="search" name="q" placeholder="搜索脚本"><input class="search-submit" type="submit" value="搜索关键词"></form><div id="script-list-sort" class="list-option-group">脚本排序：<ul id="sort-options-list"></ul></div></div><br><ins class="adsbygoogle" style="display:inline-block;width:190px;height:570px" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4497590737"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><br></div></div></div><footer style="font-size:11px;text-align:center"><div id="pagination" class="pagination"></div></footer><ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-3758644447684310" data-ad-slot="3934604756"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></body></html>
