@@ -273,6 +273,10 @@
                 const url = new URL(window.location.href);
                 url.hash = `#?${new URLSearchParams(searchParams).toString()}`;
                 window.history.pushState({}, "", url);
+                
+                // Update sort selection after search
+                updateSortSelection(searchParams.sort || "");
+                
                 loadResults();
             });
         }
@@ -312,6 +316,31 @@
         .catch(error => {
             console.error("API Test - Error:", error);
             console.error("API Test - Error type:", error.constructor.name);
+        });
+    }
+
+    function updateSortSelection(selectedSort) {
+        const sortOptionsList = document.getElementById("sort-options-list");
+        if (!sortOptionsList) return;
+        
+        // Remove current selection from all items
+        const allOptions = sortOptionsList.querySelectorAll('.list-option');
+        allOptions.forEach(item => {
+            item.classList.remove('list-current');
+        });
+        
+        // Add current selection to the clicked item
+        allOptions.forEach(item => {
+            const link = item.querySelector('a');
+            if (link) {
+                const url = new URL(link.href, window.location.origin);
+                const params = new URLSearchParams(url.hash.substring(2));
+                const sortValue = params.get('sort') || '';
+                
+                if (sortValue === selectedSort) {
+                    item.classList.add('list-current');
+                }
+            }
         });
     }
 
@@ -373,6 +402,10 @@
                 // Add click handler to update current page
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
+                    
+                    // Update current selection immediately
+                    updateSortSelection(option.value);
+                    
                     window.history.pushState({}, "", this.href);
                     loadResults();
                 });
@@ -380,11 +413,19 @@
                 listItem.appendChild(link);
                 sortOptionsList.appendChild(listItem);
             });
+            
+            // Ensure current selection is properly set after DOM creation
+            setTimeout(() => updateSortSelection(sort), 0);
         }
     }
 
     // Initialize event listeners
     window.addEventListener("popstate", function() {
+        // Update sort selection when browser back/forward is used
+        const params = getHashParams();
+        const currentSort = params.sort || "";
+        updateSortSelection(currentSort);
+        
         loadResults();
     });
 
@@ -409,4 +450,4 @@
         loadResults();
     }
 }();
-   </script><style>.loading{text-align:center;color:#666}</style><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-KZFGTVN7');</script></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFGTVN7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><header id="main-header"><div class="width-constraint"><div id="site-name"><div id="site-name-text"><a href="/zh-hans"><h1>GFork</h1></a></div></div><div id="site-nav"><nav><li class="help-link"><a href="/zh-hans/help">帮助</a></li><li class="with-submenu"><a href="#" onclick="return false">更多</a><nav><li><a href="/zh-hans/search">高级搜索</a></li></nav></li></nav></div><div id="mobile-nav"><div class="mobile-nav-opener">☰</div><nav class="collapsed"><li class="help-link"><a href="/zh-hans/help">帮助</a></li><li><a href="/zh-hans/search">高级搜索</a></li></nav></div></div></header><div class="open-sidebar sidebar-collapsed">☰</div><div class="width-constraint"><div class="sidebarred"><div class="sidebarred-main-content"><ol id="browse-script-list" class="script-list"><div id="script-results" class="loading">加载脚本中...</div></ol></div><div class="sidebar collapsed"><div class="close-sidebar"><div class="sidebar-title">搜索选项</div><div>☰</div></div><div id="script-list-option-groups" class="list-option-groups"><form class="sidebar-search"><input type="search" name="q" placeholder="搜索脚本"><input class="search-submit" type="submit" value="搜索关键词"></form><div id="script-list-sort" class="list-option-group">脚本排序：<ul id="sort-options-list"></ul></div></div><br><ins class="adsbygoogle" style="display:inline-block;width:190px;height:570px" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4497590737"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><br></div></div></div><footer style="font-size:11px;text-align:center"><div id="pagination" class="pagination"></div></footer><ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-3758644447684310" data-ad-slot="3934604756"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></body></html>
+   </script><style>.loading{text-align:center;color:#666}</style><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-KZFGTVN7');</script></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZFGTVN7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><header id="main-header"><div class="width-constraint"><div id="site-name"><div id="site-name-text"><a href="/zh-hans"><h1>GFork</h1></a></div></div><div id="site-nav"><nav><li class="help-link"><a href="/zh-hans/help">帮助</a></li><li class="with-submenu"><a href="#" onclick="return false">更多</a><nav><li><a href="/zh-hans/search">高级搜索</a></li></nav></li></nav></div><div id="mobile-nav"><div class="mobile-nav-opener">☰</div><nav class="collapsed"><li class="help-link"><a href="/zh-hans/help">帮助</a></li><li><a href="/zh-hans/search">高级搜索</a></li></nav></div></div></header><div class="open-sidebar sidebar-collapsed">☰</div><div class="width-constraint"><div class="sidebarred"><div class="sidebarred-main-content"><ol id="browse-script-list" class="script-list"><div id="script-results" class="loading">等待加载脚本中...</div></ol></div><div class="sidebar collapsed"><div class="close-sidebar"><div class="sidebar-title">搜索选项</div><div>☰</div></div><div id="script-list-option-groups" class="list-option-groups"><form class="sidebar-search"><input type="search" name="q" placeholder="搜索脚本"><input class="search-submit" type="submit" value="搜索关键词"></form><div id="script-list-sort" class="list-option-group">脚本排序：<ul id="sort-options-list"></ul></div></div><br><ins class="adsbygoogle" style="display:inline-block;width:190px;height:570px" data-ad-client="ca-pub-3758644447684310" data-ad-slot="4497590737"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><br></div></div></div><footer style="font-size:11px;text-align:center"><div id="pagination" class="pagination"></div></footer><ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-3758644447684310" data-ad-slot="3934604756"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></body></html>
